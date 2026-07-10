@@ -6,19 +6,24 @@ export enum Direction {
   Right = 'RIGHT',
 }
 
-/** What a single grid cell is made of. */
+/**
+ * What a single grid cell is structurally. This does NOT encode paint
+ * state — a tile keeps its type for the whole game (e.g. an Ice tile is
+ * always Ice), except LOCKED, which becomes EMPTY once unlocked. Paint
+ * state is tracked separately via `LevelTile.painted` so tiles like Ice
+ * and Teleport can be both "paintable" and keep their special movement
+ * behavior after being visited.
+ */
 export enum TileType {
-  /** Rollable floor that has not been painted yet. */
+  /** Rollable, paintable floor. */
   Empty = 'EMPTY',
-  /** Rollable floor that the ball has already painted. */
-  Painted = 'PAINTED',
   /** Solid wall — blocks movement, ball stops before it. */
   Wall = 'WALL',
   /** Non-paintable decorative/blocking obstacle. */
   Obstacle = 'OBSTACLE',
   /** Outside the playable grid. */
   Void = 'VOID',
-  /** Requires a key/star count to unlock before it can be painted. */
+  /** Blocks movement until unlocked with stars; becomes EMPTY once unlocked. */
   Locked = 'LOCKED',
   /** Ball slides through without stopping (until it hits something else). */
   Ice = 'ICE',
@@ -37,12 +42,14 @@ export interface LevelTile {
   row: number;
   col: number;
   type: TileType;
-  /** For LOCKED tiles: number of stars required to unlock. */
+  /** Whether this tile must be painted to win (false for WALL/OBSTACLE/VOID/PORTAL). */
+  paintable: boolean;
+  /** Runtime paint state. Always false in static level JSON. */
+  painted: boolean;
+  /** For LOCKED tiles: coin cost to unlock (tap to pay, then it's rollable). */
   unlockCost?: number;
   /** For PORTAL/TELEPORT pairs: id linking a portal to its exit. */
   linkId?: string;
-  /** Whether this tile must be painted to win (false for WALL/OBSTACLE/VOID/LOCKED-permanently). */
-  paintable: boolean;
 }
 
 export interface LevelDefinition {
@@ -73,8 +80,11 @@ export interface LevelPack {
 /** Serializable move used by the undo stack. */
 export interface GameMove {
   direction: Direction;
+  from: GridCoord;
+  to: GridCoord;
+  /** Every tile the ball passed over during this move, in order. */
   path: GridCoord[];
-  /** Tiles that were painted for the first time on this move. */
+  /** Tiles that were painted for the first time on this move (undo target). */
   newlyPainted: GridCoord[];
 }
 
@@ -91,6 +101,11 @@ export interface GameState {
   paintedCount: number;
   paintableTotal: number;
   hintsUsed: number;
+}
+
+export interface HintSuggestion {
+  direction: Direction;
+  newlyPaintedCount: number;
 }
 
 export interface LevelProgress {
