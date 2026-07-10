@@ -11,6 +11,7 @@ import {useProgressStore} from '../../store/useProgressStore';
 import {useStatsStore} from '../../store/useStatsStore';
 import {useAchievementsStore} from '../../store/useAchievementsStore';
 import {useDailyChallengeStore} from '../../store/useDailyChallengeStore';
+import {AdsService} from '../../services/AdsService';
 import {Card} from '../../components/Card';
 import {Button} from '../../components/Button';
 
@@ -150,6 +151,18 @@ export function SettingsScreen({navigation}: Props) {
             />
             <NavRow icon="cart" label="Shop" theme={theme} onPress={() => navigation.navigate('Shop')} />
             <NavRow icon="star-outline" label="Rate PaintRoll" theme={theme} onPress={handleRateApp} />
+            <NavRow
+              icon="shield-lock-outline"
+              label="Privacy Options"
+              theme={theme}
+              onPress={() => {
+                AdsService.openPrivacyOptions().then(shown => {
+                  if (!shown) {
+                    Alert.alert('Privacy Options', 'No additional ad privacy choices are required for your region.');
+                  }
+                });
+              }}
+            />
           </Card>
 
           <Card style={styles.section}>

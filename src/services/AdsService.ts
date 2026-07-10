@@ -1,4 +1,10 @@
-import mobileAds, {AdEventType, InterstitialAd, TestIds} from 'react-native-google-mobile-ads';
+import mobileAds, {
+  AdEventType,
+  AdsConsent,
+  AdsConsentPrivacyOptionsRequirementStatus,
+  InterstitialAd,
+  TestIds,
+} from 'react-native-google-mobile-ads';
 import {AdConfig} from '../constants/gameConfig';
 import {useProgressStore} from '../store/useProgressStore';
 
@@ -19,10 +25,30 @@ class AdsServiceImpl {
     }
     this.initialized = true;
     try {
+      // Google's UMP flow: only actually shows a form to users in a region
+      // that requires it (EEA/UK/etc); everyone else resolves instantly as
+      // NOT_REQUIRED. Must run before mobileAds().initialize() so consent
+      // (or the lack of it) is applied to the very first ad request.
+      await AdsConsent.gatherConsent();
       await mobileAds().initialize();
       this.loadInterstitial();
     } catch (error) {
       console.warn('[AdsService] initialize failed', error);
+    }
+  }
+
+  /** Re-opens the privacy options form (required to be reachable post-onboarding for EEA users). */
+  async openPrivacyOptions(): Promise<boolean> {
+    try {
+      const info = await AdsConsent.getConsentInfo();
+      if (info.privacyOptionsRequirementStatus !== AdsConsentPrivacyOptionsRequirementStatus.REQUIRED) {
+        return false;
+      }
+      await AdsConsent.showPrivacyOptionsForm();
+      return true;
+    } catch (error) {
+      console.warn('[AdsService] openPrivacyOptions failed', error);
+      return false;
     }
   }
 

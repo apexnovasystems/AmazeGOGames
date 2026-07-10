@@ -5,6 +5,7 @@ import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {RootNavigator} from './src/navigation/RootNavigator';
 import {useSettingsStore} from './src/store/useSettingsStore';
 import {AdsService} from './src/services/AdsService';
+import {ErrorBoundary} from './src/components/ErrorBoundary';
 
 function App() {
   const systemScheme = useColorScheme();
@@ -19,7 +20,9 @@ function App() {
     <GestureHandlerRootView style={{flex: 1}}>
       <SafeAreaProvider>
         <StatusBar barStyle={resolvedMode === 'dark' ? 'light-content' : 'dark-content'} translucent backgroundColor="transparent" />
-        <RootNavigator />
+        <ErrorBoundary>
+          <RootNavigator />
+        </ErrorBoundary>
       </SafeAreaProvider>
     </GestureHandlerRootView>
   );
