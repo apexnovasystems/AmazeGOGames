@@ -3,7 +3,7 @@ import {useSettingsStore} from '../store/useSettingsStore';
 
 Sound.setCategory('Playback');
 
-export type SoundEffect = 'click' | 'swipe' | 'paint' | 'unlock' | 'victory' | 'coin';
+export type SoundEffect = 'click' | 'swipe' | 'paint' | 'unlock' | 'victory' | 'coin' | 'fail';
 
 const SOUND_FILES: Record<SoundEffect, string> = {
   click: 'sfx_click.wav',
@@ -12,6 +12,7 @@ const SOUND_FILES: Record<SoundEffect, string> = {
   unlock: 'sfx_unlock.wav',
   victory: 'sfx_victory.wav',
   coin: 'sfx_coin.wav',
+  fail: 'sfx_fail.wav',
 };
 
 const cache = new Map<SoundEffect, Sound>();

@@ -94,11 +94,19 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
   },
 
   tick: deltaMs => {
-    const {gameState} = get();
+    const {gameState, level} = get();
     if (!gameState || gameState.status !== 'playing') {
       return;
     }
-    set({gameState: GameEngine.tick(gameState, deltaMs)});
+    const next = GameEngine.tick(gameState, deltaMs);
+    const timeLimitMs = (level?.parTimeSeconds ?? 0) * 1000;
+
+    if (timeLimitMs > 0 && next.elapsedMs >= timeLimitMs) {
+      SoundService.play('fail');
+      set({gameState: {...next, elapsedMs: timeLimitMs, status: 'lost'}});
+      return;
+    }
+    set({gameState: next});
   },
 
   requestHint: () => {

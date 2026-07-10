@@ -22,6 +22,7 @@ import {GameConfig} from '../../constants/gameConfig';
 import {SoundService} from '../../services/SoundService';
 import {PauseModal} from '../Pause/PauseModal';
 import {VictoryModal} from './VictoryModal';
+import {FailedModal} from './FailedModal';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Game'>;
 
@@ -147,6 +148,7 @@ export function GameScreen({navigation, route}: Props) {
         <GameHUD
           moveCount={gameState.moveCount}
           elapsedMs={gameState.elapsedMs}
+          timeLimitMs={level.parTimeSeconds * 1000}
           paintedCount={gameState.paintedCount}
           paintableTotal={gameState.paintableTotal}
         />
@@ -174,7 +176,7 @@ export function GameScreen({navigation, route}: Props) {
           <ToolbarButton
             icon="undo"
             label="Undo"
-            disabled={gameState.history.length === 0}
+            disabled={gameState.history.length === 0 || gameState.status !== 'playing'}
             onPress={undo}
             theme={theme}
           />
@@ -209,6 +211,14 @@ export function GameScreen({navigation, route}: Props) {
         hasNextLevel={Boolean(nextLevel)}
         onNext={() => nextLevel && loadLevel(nextLevel.id)}
         onReplay={restart}
+        onExit={() => navigation.goBack()}
+      />
+
+      <FailedModal
+        visible={gameState.status === 'lost'}
+        paintedCount={gameState.paintedCount}
+        paintableTotal={gameState.paintableTotal}
+        onRetry={restart}
         onExit={() => navigation.goBack()}
       />
     </LinearGradient>

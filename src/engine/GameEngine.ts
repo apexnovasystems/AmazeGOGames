@@ -79,7 +79,7 @@ export const GameEngine = {
   },
 
   undo(state: GameState): GameState {
-    if (state.history.length === 0 || state.status === 'won') {
+    if (state.history.length === 0 || state.status === 'won' || state.status === 'lost') {
       return state;
     }
     const lastMove = state.history[state.history.length - 1];

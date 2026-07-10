@@ -131,7 +131,7 @@
         9,
         5
       ],
-      "parTimeSeconds": 60,
+      "parTimeSeconds": 120,
       "difficulty": "easy",
       "coinsReward": 10
     },
@@ -292,7 +292,7 @@
         10,
         6
       ],
-      "parTimeSeconds": 65,
+      "parTimeSeconds": 120,
       "difficulty": "easy",
       "coinsReward": 12
     },
@@ -488,7 +488,7 @@
         12,
         8
       ],
-      "parTimeSeconds": 70,
+      "parTimeSeconds": 120,
       "difficulty": "easy",
       "coinsReward": 14
     },
@@ -719,7 +719,7 @@
         13,
         9
       ],
-      "parTimeSeconds": 75,
+      "parTimeSeconds": 160,
       "difficulty": "medium",
       "coinsReward": 16
     },
@@ -992,7 +992,7 @@
         15,
         11
       ],
-      "parTimeSeconds": 80,
+      "parTimeSeconds": 160,
       "difficulty": "medium",
       "coinsReward": 18
     },
@@ -1265,7 +1265,7 @@
         15,
         11
       ],
-      "parTimeSeconds": 85,
+      "parTimeSeconds": 160,
       "difficulty": "medium",
       "coinsReward": 20
     },
@@ -1580,7 +1580,7 @@
         17,
         13
       ],
-      "parTimeSeconds": 90,
+      "parTimeSeconds": 160,
       "difficulty": "medium",
       "coinsReward": 22
     },
@@ -1944,7 +1944,7 @@
         19,
         15
       ],
-      "parTimeSeconds": 95,
+      "parTimeSeconds": 210,
       "difficulty": "hard",
       "coinsReward": 26
     },
@@ -2310,7 +2310,7 @@
         19,
         15
       ],
-      "parTimeSeconds": 100,
+      "parTimeSeconds": 210,
       "difficulty": "hard",
       "coinsReward": 30
     },
@@ -2724,7 +2724,7 @@
         22,
         18
       ],
-      "parTimeSeconds": 105,
+      "parTimeSeconds": 210,
       "difficulty": "hard",
       "coinsReward": 34
     },
@@ -3193,7 +3193,7 @@
         24,
         20
       ],
-      "parTimeSeconds": 110,
+      "parTimeSeconds": 260,
       "difficulty": "expert",
       "coinsReward": 40
     },
@@ -3666,7 +3666,7 @@
         24,
         20
       ],
-      "parTimeSeconds": 115,
+      "parTimeSeconds": 260,
       "difficulty": "expert",
       "coinsReward": 50
     }

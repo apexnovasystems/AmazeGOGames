@@ -178,6 +178,12 @@ function paintableCount(tiles) {
   return tiles.filter(t => t.paintable || t.type === TileType.Locked).length;
 }
 
+// Countdown time limit players race against — scaled by difficulty so
+// easy levels stay snappy (2 min) while later ones give more breathing
+// room. Failing to finish in time ends the level as a loss (see
+// useGameStore.tick).
+const TIME_LIMIT_BY_DIFFICULTY = {easy: 120, medium: 160, hard: 210, expert: 260};
+
 function makeLevel(spec) {
   const {tiles, attempts} = generateSolvableLevel(spec);
   const total = paintableCount(tiles);
@@ -193,7 +199,7 @@ function makeLevel(spec) {
     ballStart: {row: spec.ballStart[0], col: spec.ballStart[1]},
     tiles,
     starThresholds,
-    parTimeSeconds: 60 + spec.order * 5,
+    parTimeSeconds: TIME_LIMIT_BY_DIFFICULTY[spec.difficulty],
     difficulty: spec.difficulty,
     coinsReward: spec.coinsReward,
     ...(spec.unlockCoinCost ? {unlockCoinCost: spec.unlockCoinCost} : {}),
