@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useState} from 'react';
+import React, {useCallback, useEffect, useRef, useState} from 'react';
 import {LayoutChangeEvent, Pressable, StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {SafeAreaView} from 'react-native-safe-area-context';
@@ -17,7 +17,9 @@ import {WinEngine} from '../../engine/WinEngine';
 import {createSwipeGesture} from '../../engine/SwipeEngine';
 import {Grid, computeGridLayout} from '../../components/Grid/Grid';
 import {GameHUD, CurrencyBadge} from '../../components/HUD';
+import {ConfettiOverlay} from '../../components/Particles/ConfettiOverlay';
 import {GameConfig} from '../../constants/gameConfig';
+import {SoundService} from '../../services/SoundService';
 import {PauseModal} from '../Pause/PauseModal';
 import {VictoryModal} from './VictoryModal';
 
@@ -49,12 +51,30 @@ export function GameScreen({navigation, route}: Props) {
   const coins = useProgressStore(state => state.coins);
 
   const [containerSize, setContainerSize] = useState({width: 0, height: 0});
+  const [confettiTrigger, setConfettiTrigger] = useState(0);
+  const previousPaintedCount = useRef<number | null>(null);
+  const previousStatus = useRef<string | null>(null);
 
   useEffect(() => {
     loadLevel(levelId);
   }, [levelId, loadLevel]);
 
   useGameTimer(gameState?.status ?? 'idle', tick);
+
+  useEffect(() => {
+    if (!gameState) {
+      return;
+    }
+    if (previousPaintedCount.current !== null && gameState.paintedCount > previousPaintedCount.current) {
+      SoundService.play('paint');
+    }
+    previousPaintedCount.current = gameState.paintedCount;
+
+    if (gameState.status === 'won' && previousStatus.current !== 'won') {
+      setConfettiTrigger(n => n + 1);
+    }
+    previousStatus.current = gameState.status;
+  }, [gameState]);
 
   const layout = level
     ? computeGridLayout(level.rows, level.cols, containerSize.width, containerSize.height)
@@ -67,6 +87,7 @@ export function GameScreen({navigation, route}: Props) {
 
   const handleSwipe = useCallback(
     (direction: Direction) => {
+      SoundService.play('swipe');
       move(direction);
     },
     [move],
@@ -168,6 +189,11 @@ export function GameScreen({navigation, route}: Props) {
         </View>
       </SafeAreaView>
 
+      <ConfettiOverlay
+        trigger={confettiTrigger}
+        colors={[theme.colors.primary, theme.colors.secondary, theme.colors.accent, theme.colors.star]}
+      />
+
       <PauseModal
         visible={gameState.status === 'paused'}
         onResume={resume}
@@ -205,7 +231,10 @@ function ToolbarButton({
   return (
     <Pressable
       disabled={disabled}
-      onPress={onPress}
+      onPress={() => {
+        SoundService.play('click');
+        onPress();
+      }}
       hitSlop={12}
       style={[
         styles.toolbarButton,

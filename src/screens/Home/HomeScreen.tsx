@@ -11,6 +11,8 @@ import {useProgressStore} from '../../store/useProgressStore';
 import {Button} from '../../components/Button';
 import {CurrencyBadge} from '../../components/HUD';
 import {LevelLoader} from '../../engine/LevelLoader';
+import {SoundService} from '../../services/SoundService';
+import {MusicService} from '../../services/MusicService';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
@@ -27,6 +29,11 @@ export function HomeScreen({navigation}: Props) {
       withRepeat(withTiming(1, {duration: 1800, easing: Easing.inOut(Easing.sin)}), -1, true),
     );
   }, [floatY]);
+
+  useEffect(() => {
+    SoundService.preloadAll();
+    MusicService.start();
+  }, []);
   const floatStyle = useAnimatedStyle(() => ({
     transform: [{translateY: floatY.value * -10}],
   }));

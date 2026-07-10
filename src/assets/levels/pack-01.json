@@ -37,8 +37,8 @@
         {
           "row": 0,
           "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -58,8 +58,8 @@
         {
           "row": 1,
           "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -100,8 +100,8 @@
         {
           "row": 3,
           "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -127,8 +127,8 @@
         }
       ],
       "starThresholds": [
-        11,
-        8,
+        13,
+        9,
         5
       ],
       "parTimeSeconds": 60,
@@ -163,8 +163,8 @@
         {
           "row": 0,
           "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -184,8 +184,8 @@
         {
           "row": 1,
           "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -197,47 +197,47 @@
         },
         {
           "row": 1,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 1,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 1,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
           "col": 2,
           "type": "OBSTACLE",
           "paintable": false,
           "painted": false
         },
         {
+          "row": 1,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
           "row": 2,
           "col": 3,
           "type": "EMPTY",
@@ -247,8 +247,8 @@
         {
           "row": 2,
           "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -288,8 +288,8 @@
         }
       ],
       "starThresholds": [
-        12,
-        9,
+        14,
+        10,
         6
       ],
       "parTimeSeconds": 65,
@@ -338,26 +338,26 @@
         {
           "row": 0,
           "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 1,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 1,
-          "col": 1,
           "type": "OBSTACLE",
           "paintable": false,
           "painted": false
         },
         {
           "row": 1,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 1,
           "col": 2,
           "type": "EMPTY",
           "paintable": true,
@@ -401,15 +401,15 @@
         {
           "row": 2,
           "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
           "row": 2,
           "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -450,8 +450,8 @@
         {
           "row": 4,
           "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -484,8 +484,8 @@
         }
       ],
       "starThresholds": [
-        14,
-        11,
+        16,
+        12,
         8
       ],
       "parTimeSeconds": 70,
@@ -555,22 +555,22 @@
         {
           "row": 1,
           "col": 1,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 1,
+          "col": 2,
           "type": "EMPTY",
           "paintable": true,
           "painted": false
         },
         {
           "row": 1,
-          "col": 2,
-          "type": "OBSTACLE",
-          "paintable": false,
-          "painted": false
-        },
-        {
-          "row": 1,
           "col": 3,
-          "type": "OBSTACLE",
-          "paintable": false,
+          "type": "EMPTY",
+          "paintable": true,
           "painted": false
         },
         {
@@ -597,8 +597,8 @@
         {
           "row": 2,
           "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -611,8 +611,8 @@
         {
           "row": 2,
           "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -625,8 +625,8 @@
         {
           "row": 2,
           "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -646,15 +646,15 @@
         {
           "row": 3,
           "col": 2,
-          "type": "OBSTACLE",
-          "paintable": false,
+          "type": "EMPTY",
+          "paintable": true,
           "painted": false
         },
         {
           "row": 3,
           "col": 3,
-          "type": "OBSTACLE",
-          "paintable": false,
+          "type": "EMPTY",
+          "paintable": true,
           "painted": false
         },
         {
@@ -674,8 +674,8 @@
         {
           "row": 4,
           "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -709,14 +709,14 @@
         {
           "row": 4,
           "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         }
       ],
       "starThresholds": [
-        15,
-        12,
+        17,
+        13,
         9
       ],
       "parTimeSeconds": 75,
@@ -751,8 +751,8 @@
         {
           "row": 0,
           "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -786,8 +786,8 @@
         {
           "row": 1,
           "col": 1,
-          "type": "OBSTACLE",
-          "paintable": false,
+          "type": "EMPTY",
+          "paintable": true,
           "painted": false
         },
         {
@@ -800,8 +800,8 @@
         {
           "row": 1,
           "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -821,8 +821,8 @@
         {
           "row": 2,
           "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -835,8 +835,8 @@
         {
           "row": 2,
           "col": 2,
-          "type": "OBSTACLE",
-          "paintable": false,
+          "type": "EMPTY",
+          "paintable": true,
           "painted": false
         },
         {
@@ -884,8 +884,8 @@
         {
           "row": 3,
           "col": 3,
-          "type": "OBSTACLE",
-          "paintable": false,
+          "type": "EMPTY",
+          "paintable": true,
           "painted": false
         },
         {
@@ -898,8 +898,8 @@
         {
           "row": 3,
           "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -912,8 +912,8 @@
         {
           "row": 4,
           "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -926,15 +926,15 @@
         {
           "row": 4,
           "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
           "row": 4,
           "col": 4,
-          "type": "OBSTACLE",
-          "paintable": false,
+          "type": "EMPTY",
+          "paintable": true,
           "painted": false
         },
         {
@@ -968,8 +968,8 @@
         {
           "row": 5,
           "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -988,8 +988,8 @@
         }
       ],
       "starThresholds": [
-        17,
-        14,
+        19,
+        15,
         11
       ],
       "parTimeSeconds": 80,
@@ -1031,8 +1031,8 @@
         {
           "row": 0,
           "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -1052,7 +1052,7 @@
         {
           "row": 1,
           "col": 0,
-          "type": "EMPTY",
+          "type": "ICE",
           "paintable": true,
           "painted": false
         },
@@ -1073,7 +1073,7 @@
         {
           "row": 1,
           "col": 3,
-          "type": "EMPTY",
+          "type": "ICE",
           "paintable": true,
           "painted": false
         },
@@ -1101,36 +1101,36 @@
         {
           "row": 2,
           "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 4,
           "type": "OBSTACLE",
           "paintable": false,
           "painted": false
         },
         {
           "row": 2,
-          "col": 5,
+          "col": 2,
+          "type": "ICE",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 3,
           "type": "EMPTY",
           "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -1164,8 +1164,8 @@
         {
           "row": 3,
           "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -1178,21 +1178,21 @@
         {
           "row": 4,
           "col": 0,
-          "type": "ICE",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
           "row": 4,
           "col": 1,
-          "type": "ICE",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
           "row": 4,
           "col": 2,
-          "type": "ICE",
+          "type": "EMPTY",
           "paintable": true,
           "painted": false
         },
@@ -1206,7 +1206,7 @@
         {
           "row": 4,
           "col": 4,
-          "type": "EMPTY",
+          "type": "ICE",
           "paintable": true,
           "painted": false
         },
@@ -1241,8 +1241,8 @@
         {
           "row": 5,
           "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -1261,9 +1261,9 @@
         }
       ],
       "starThresholds": [
-        18,
+        19,
         15,
-        12
+        11
       ],
       "parTimeSeconds": 85,
       "difficulty": "medium",
@@ -1283,7 +1283,7 @@
         {
           "row": 0,
           "col": 0,
-          "type": "ICE",
+          "type": "EMPTY",
           "paintable": true,
           "painted": false
         },
@@ -1297,7 +1297,7 @@
         {
           "row": 0,
           "col": 2,
-          "type": "ICE",
+          "type": "EMPTY",
           "paintable": true,
           "painted": false
         },
@@ -1311,8 +1311,8 @@
         {
           "row": 0,
           "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -1332,8 +1332,8 @@
         {
           "row": 1,
           "col": 0,
-          "type": "ICE",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -1346,7 +1346,7 @@
         {
           "row": 1,
           "col": 2,
-          "type": "EMPTY",
+          "type": "ICE",
           "paintable": true,
           "painted": false
         },
@@ -1374,21 +1374,21 @@
         {
           "row": 1,
           "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
           "row": 2,
           "col": 0,
-          "type": "ICE",
+          "type": "EMPTY",
           "paintable": true,
           "painted": false
         },
         {
           "row": 2,
           "col": 1,
-          "type": "EMPTY",
+          "type": "ICE",
           "paintable": true,
           "painted": false
         },
@@ -1450,61 +1450,61 @@
         },
         {
           "row": 3,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 4,
           "col": 3,
           "type": "OBSTACLE",
           "paintable": false,
           "painted": false
         },
         {
-          "row": 3,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
           "row": 4,
           "col": 4,
           "type": "EMPTY",
@@ -1528,14 +1528,14 @@
         {
           "row": 5,
           "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
           "row": 5,
           "col": 1,
-          "type": "EMPTY",
+          "type": "ICE",
           "paintable": true,
           "painted": false
         },
@@ -1563,22 +1563,22 @@
         {
           "row": 5,
           "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
           "row": 5,
           "col": 6,
-          "type": "EMPTY",
+          "type": "ICE",
           "paintable": true,
           "painted": false
         }
       ],
       "starThresholds": [
-        20,
+        21,
         17,
-        14
+        13
       ],
       "parTimeSeconds": 90,
       "difficulty": "medium",
@@ -1598,36 +1598,36 @@
         {
           "row": 0,
           "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 0,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 0,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 0,
-          "col": 3,
           "type": "OBSTACLE",
           "paintable": false,
           "painted": false
         },
         {
           "row": 0,
-          "col": 4,
+          "col": 1,
           "type": "EMPTY",
           "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -1689,67 +1689,67 @@
         {
           "row": 1,
           "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
           "row": 2,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
           "col": 0,
           "type": "OBSTACLE",
           "paintable": false,
           "painted": false
         },
         {
+          "row": 2,
+          "col": 1,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
           "row": 3,
           "col": 1,
           "type": "EMPTY",
@@ -1773,8 +1773,8 @@
         {
           "row": 3,
           "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -1787,54 +1787,54 @@
         {
           "row": 3,
           "col": 6,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 5,
           "type": "OBSTACLE",
           "paintable": false,
           "painted": false
         },
         {
           "row": 4,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
           "col": 6,
           "type": "EMPTY",
           "paintable": true,
@@ -1843,81 +1843,81 @@
         {
           "row": 5,
           "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 3,
           "type": "OBSTACLE",
           "paintable": false,
           "painted": false
         },
         {
+          "row": 5,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
           "row": 6,
           "col": 4,
           "type": "EMPTY",
@@ -1934,14 +1934,14 @@
         {
           "row": 6,
           "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         }
       ],
       "starThresholds": [
-        21,
-        18,
+        23,
+        19,
         15
       ],
       "parTimeSeconds": 95,
@@ -1983,8 +1983,8 @@
         {
           "row": 0,
           "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -1997,15 +1997,15 @@
         {
           "row": 0,
           "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
           "row": 0,
           "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -2032,9 +2032,10 @@
         {
           "row": 1,
           "col": 3,
-          "type": "EMPTY",
+          "type": "TELEPORT",
           "paintable": true,
-          "painted": false
+          "painted": false,
+          "linkId": "portal-1"
         },
         {
           "row": 1,
@@ -2045,6 +2046,202 @@
         },
         {
           "row": 1,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 1,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 5,
           "col": 5,
           "type": "PORTAL",
           "paintable": false,
@@ -2052,242 +2249,45 @@
           "linkId": "portal-1"
         },
         {
-          "row": 1,
+          "row": 5,
           "col": 6,
           "type": "EMPTY",
           "paintable": true,
           "painted": false
         },
         {
-          "row": 2,
+          "row": 6,
           "col": 0,
           "type": "EMPTY",
           "paintable": true,
           "painted": false
         },
         {
-          "row": 2,
+          "row": 6,
           "col": 1,
           "type": "EMPTY",
           "paintable": true,
           "painted": false
         },
         {
-          "row": 2,
+          "row": 6,
           "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 3,
           "type": "OBSTACLE",
           "paintable": false,
           "painted": false
         },
         {
-          "row": 3,
+          "row": 6,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
           "col": 4,
           "type": "OBSTACLE",
           "paintable": false,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "type": "TELEPORT",
-          "paintable": true,
-          "painted": false,
-          "linkId": "portal-1"
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
           "painted": false
         },
         {
@@ -2306,8 +2306,8 @@
         }
       ],
       "starThresholds": [
-        21,
-        18,
+        23,
+        19,
         15
       ],
       "parTimeSeconds": 100,
@@ -2342,8 +2342,8 @@
         {
           "row": 0,
           "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -2426,8 +2426,8 @@
         {
           "row": 1,
           "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -2454,43 +2454,43 @@
         {
           "row": 2,
           "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 4,
           "type": "OBSTACLE",
           "paintable": false,
           "painted": false
         },
         {
           "row": 2,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
           "col": 5,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 6,
           "type": "OBSTACLE",
           "paintable": false,
           "painted": false
         },
         {
           "row": 2,
-          "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
           "col": 7,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -2545,8 +2545,8 @@
         {
           "row": 3,
           "col": 7,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -2622,107 +2622,107 @@
         {
           "row": 5,
           "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 7,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 7,
           "type": "LOCKED",
           "paintable": false,
           "painted": false,
           "unlockCost": 15
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 0,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
         }
       ],
       "starThresholds": [
-        23,
-        20,
-        17
+        26,
+        22,
+        18
       ],
       "parTimeSeconds": 105,
       "difficulty": "hard",
@@ -2770,29 +2770,29 @@
         {
           "row": 0,
           "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 0,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 0,
-          "col": 6,
           "type": "ICE",
           "paintable": true,
           "painted": false
         },
         {
           "row": 0,
-          "col": 7,
+          "col": 5,
           "type": "ICE",
           "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 0,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 0,
+          "col": 7,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -2826,8 +2826,8 @@
         {
           "row": 1,
           "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -2847,15 +2847,15 @@
         {
           "row": 1,
           "col": 7,
-          "type": "ICE",
+          "type": "EMPTY",
           "paintable": true,
           "painted": false
         },
         {
           "row": 2,
           "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -2889,8 +2889,8 @@
         {
           "row": 2,
           "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -2910,8 +2910,8 @@
         {
           "row": 3,
           "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -2924,8 +2924,8 @@
         {
           "row": 3,
           "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -2938,15 +2938,15 @@
         {
           "row": 3,
           "col": 4,
-          "type": "OBSTACLE",
-          "paintable": false,
+          "type": "EMPTY",
+          "paintable": true,
           "painted": false
         },
         {
           "row": 3,
           "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -2987,15 +2987,15 @@
         {
           "row": 4,
           "col": 3,
-          "type": "OBSTACLE",
-          "paintable": false,
+          "type": "EMPTY",
+          "paintable": true,
           "painted": false
         },
         {
           "row": 4,
           "col": 4,
-          "type": "OBSTACLE",
-          "paintable": false,
+          "type": "ICE",
+          "paintable": true,
           "painted": false
         },
         {
@@ -3029,7 +3029,7 @@
         {
           "row": 5,
           "col": 1,
-          "type": "EMPTY",
+          "type": "ICE",
           "paintable": true,
           "painted": false
         },
@@ -3085,15 +3085,15 @@
         {
           "row": 6,
           "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
           "row": 6,
           "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -3113,8 +3113,8 @@
         {
           "row": 6,
           "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -3134,14 +3134,14 @@
         {
           "row": 7,
           "col": 0,
-          "type": "ICE",
+          "type": "EMPTY",
           "paintable": true,
           "painted": false
         },
         {
           "row": 7,
           "col": 1,
-          "type": "ICE",
+          "type": "EMPTY",
           "paintable": true,
           "painted": false
         },
@@ -3155,15 +3155,15 @@
         {
           "row": 7,
           "col": 3,
-          "type": "EMPTY",
+          "type": "ICE",
           "paintable": true,
           "painted": false
         },
         {
           "row": 7,
           "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -3189,8 +3189,8 @@
         }
       ],
       "starThresholds": [
-        26,
-        23,
+        28,
+        24,
         20
       ],
       "parTimeSeconds": 110,
@@ -3232,10 +3232,9 @@
         {
           "row": 0,
           "col": 3,
-          "type": "PORTAL",
-          "paintable": false,
-          "painted": false,
-          "linkId": "portal-1"
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
         },
         {
           "row": 0,
@@ -3254,8 +3253,8 @@
         {
           "row": 0,
           "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
+          "type": "OBSTACLE",
+          "paintable": false,
           "painted": false
         },
         {
@@ -3275,10 +3274,9 @@
         {
           "row": 1,
           "col": 1,
-          "type": "LOCKED",
-          "paintable": false,
-          "painted": false,
-          "unlockCost": 25
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
         },
         {
           "row": 1,
@@ -3318,328 +3316,330 @@
         {
           "row": 1,
           "col": 7,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 4,
-          "type": "OBSTACLE",
-          "paintable": false,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 2,
-          "col": 7,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 3,
-          "col": 7,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 4,
-          "col": 7,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 3,
-          "type": "OBSTACLE",
-          "paintable": false,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 6,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 5,
-          "col": 7,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 0,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 4,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 5,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 6,
-          "col": 6,
-          "type": "LOCKED",
-          "paintable": false,
-          "painted": false,
-          "unlockCost": 25
-        },
-        {
-          "row": 6,
-          "col": 7,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 7,
-          "col": 0,
-          "type": "OBSTACLE",
-          "paintable": false,
-          "painted": false
-        },
-        {
-          "row": 7,
-          "col": 1,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 7,
-          "col": 2,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 7,
-          "col": 3,
-          "type": "EMPTY",
-          "paintable": true,
-          "painted": false
-        },
-        {
-          "row": 7,
-          "col": 4,
           "type": "TELEPORT",
           "paintable": true,
           "painted": false,
           "linkId": "portal-1"
         },
         {
+          "row": 2,
+          "col": 0,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 2,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "type": "LOCKED",
+          "paintable": false,
+          "painted": false,
+          "unlockCost": 25
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 4,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "type": "PORTAL",
+          "paintable": false,
+          "painted": false,
+          "linkId": "portal-1"
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 5,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 5,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 6,
+          "col": 7,
+          "type": "LOCKED",
+          "paintable": false,
+          "painted": false,
+          "unlockCost": 25
+        },
+        {
+          "row": 7,
+          "col": 0,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
+          "row": 7,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 7,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 7,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true,
+          "painted": false
+        },
+        {
+          "row": 7,
+          "col": 4,
+          "type": "OBSTACLE",
+          "paintable": false,
+          "painted": false
+        },
+        {
           "row": 7,
           "col": 5,
           "type": "EMPTY",
@@ -3656,15 +3656,15 @@
         {
           "row": 7,
           "col": 7,
-          "type": "OBSTACLE",
-          "paintable": false,
+          "type": "EMPTY",
+          "paintable": true,
           "painted": false
         }
       ],
       "starThresholds": [
+        28,
         24,
-        21,
-        18
+        20
       ],
       "parTimeSeconds": 115,
       "difficulty": "expert",

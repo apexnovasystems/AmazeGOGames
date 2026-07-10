@@ -4,6 +4,7 @@ import Animated, {useAnimatedStyle, useSharedValue, withTiming, Easing} from 're
 import LinearGradient from 'react-native-linear-gradient';
 import {useAppTheme} from '../../hooks/useAppTheme';
 import {useSettingsStore} from '../../store/useSettingsStore';
+import {SoundService} from '../../services/SoundService';
 
 export type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'danger';
 export type ButtonSize = 'sm' | 'md' | 'lg';
@@ -60,6 +61,7 @@ export const Button = memo(function Button({
     if (vibrationEnabled) {
       Vibration.vibrate(12);
     }
+    SoundService.play('click');
     onPress();
   }, [disabled, onPress, vibrationEnabled]);
 

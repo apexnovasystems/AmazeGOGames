@@ -1,5 +1,6 @@
 import {create} from 'zustand';
 import {StorageService} from '../services/StorageService';
+import {MusicService} from '../services/MusicService';
 import {StorageKeys} from '../constants/storageKeys';
 import {ThemeMode} from '../theme';
 
@@ -42,6 +43,7 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
     const next = !get().musicEnabled;
     StorageService.setBoolean(StorageKeys.SETTINGS_MUSIC_ENABLED, next);
     set({musicEnabled: next});
+    MusicService.setEnabled(next);
   },
   toggleVibration: () => {
     const next = !get().vibrationEnabled;
@@ -55,5 +57,6 @@ export const useSettingsStore = create<SettingsState>((set, get) => ({
   setMusicVolume: value => {
     StorageService.setNumber(StorageKeys.SETTINGS_MUSIC_VOLUME, value);
     set({musicVolume: value});
+    MusicService.setVolume(value);
   },
 }));

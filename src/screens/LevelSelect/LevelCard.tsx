@@ -1,10 +1,11 @@
-import React, {memo, useCallback} from 'react';
+import React, {memo, useCallback, useEffect} from 'react';
 import {Pressable, StyleSheet, Text} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Animated, {useSharedValue, useAnimatedStyle, withTiming} from 'react-native-reanimated';
+import Animated, {useSharedValue, useAnimatedStyle, withTiming, withDelay, Easing} from 'react-native-reanimated';
 import {useAppTheme} from '../../hooks/useAppTheme';
 import {StarRow} from '../../components/HUD';
 import {LevelDefinition, LevelProgress} from '../../types';
+import {SoundService} from '../../services/SoundService';
 
 export interface LevelCardProps {
   level: LevelDefinition;
@@ -16,7 +17,17 @@ export interface LevelCardProps {
 export const LevelCard = memo(function LevelCard({level, progress, unlocked, onPress}: LevelCardProps) {
   const theme = useAppTheme();
   const scale = useSharedValue(1);
-  const animatedStyle = useAnimatedStyle(() => ({transform: [{scale: scale.value}]}));
+  const entrance = useSharedValue(0);
+
+  useEffect(() => {
+    const delay = Math.min(level.order, 11) * 30;
+    entrance.value = withDelay(delay, withTiming(1, {duration: 260, easing: Easing.out(Easing.back(1.5))}));
+  }, [entrance, level.order]);
+
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{scale: scale.value * (0.7 + entrance.value * 0.3)}],
+    opacity: entrance.value,
+  }));
 
   const handlePressIn = useCallback(() => {
     scale.value = withTiming(0.95, {duration: 90});
@@ -24,11 +35,18 @@ export const LevelCard = memo(function LevelCard({level, progress, unlocked, onP
   const handlePressOut = useCallback(() => {
     scale.value = withTiming(1, {duration: 140});
   }, [scale]);
+  const handlePress = useCallback(() => {
+    if (!unlocked) {
+      return;
+    }
+    SoundService.play('click');
+    onPress(level);
+  }, [level, onPress, unlocked]);
 
   return (
     <Animated.View style={[styles.wrapper, animatedStyle]}>
       <Pressable
-        onPress={() => unlocked && onPress(level)}
+        onPress={handlePress}
         onPressIn={handlePressIn}
         onPressOut={handlePressOut}
         style={[

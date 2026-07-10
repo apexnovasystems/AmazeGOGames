@@ -5,6 +5,7 @@ import {WinEngine} from '../engine/WinEngine';
 import {LevelLoader} from '../engine/LevelLoader';
 import {useProgressStore} from './useProgressStore';
 import {GameConfig} from '../constants/gameConfig';
+import {SoundService} from '../services/SoundService';
 
 interface GameStoreState {
   level: LevelDefinition | null;
@@ -48,6 +49,7 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
     set({gameState: next, hint: null});
 
     if (next.status === 'won') {
+      SoundService.play('victory');
       const result = WinEngine.rateStars(next.moveCount, level.starThresholds);
       const progress = useProgressStore.getState();
       progress.recordLevelResult(level.id, result, next.elapsedMs);
@@ -131,6 +133,7 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
     if (!spent) {
       return false;
     }
+    SoundService.play('unlock');
     set({gameState: GameEngine.unlockTile(gameState, coord)});
     return true;
   },
