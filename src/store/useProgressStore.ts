@@ -1,6 +1,8 @@
 import {create} from 'zustand';
 import {StorageService} from '../services/StorageService';
 import {StorageKeys} from '../constants/storageKeys';
+import {DEFAULT_THEME_SKIN_ID} from '../constants/themeSkins';
+import {GameConfig} from '../constants/gameConfig';
 import {LevelProgress, StarRatingResult} from '../types';
 
 interface ProgressState {
@@ -8,6 +10,9 @@ interface ProgressState {
   coins: number;
   totalStars: number;
   levelProgress: Record<string, LevelProgress>;
+  ownedThemeIds: string[];
+  activeThemeId: string;
+  removeAdsPurchased: boolean;
 
   addCoins: (amount: number) => void;
   spendCoins: (amount: number) => boolean;
@@ -16,6 +21,10 @@ interface ProgressState {
   isLevelUnlocked: (levelId: string, levelOrder: number, orderedLevelIds: string[]) => boolean;
   unlockLevel: (levelId: string) => void;
   recordLevelResult: (levelId: string, result: StarRatingResult, timeMs: number) => void;
+  purchaseTheme: (themeId: string, priceCoins: number) => boolean;
+  setActiveTheme: (themeId: string) => void;
+  setRemoveAdsPurchased: () => void;
+  resetProgress: () => void;
 }
 
 function persistLevelProgress(map: Record<string, LevelProgress>) {
@@ -31,6 +40,9 @@ export const useProgressStore = create<ProgressState>((set, get) => ({
   coins: StorageService.getNumber(StorageKeys.COINS, 100),
   totalStars: StorageService.getNumber(StorageKeys.TOTAL_STARS, 0),
   levelProgress: StorageService.getObject<Record<string, LevelProgress>>(StorageKeys.LEVEL_PROGRESS_MAP, {}),
+  ownedThemeIds: StorageService.getObject<string[]>(StorageKeys.OWNED_THEMES, [DEFAULT_THEME_SKIN_ID]),
+  activeThemeId: StorageService.getString(StorageKeys.ACTIVE_THEME_ID, DEFAULT_THEME_SKIN_ID),
+  removeAdsPurchased: StorageService.getBoolean(StorageKeys.REMOVE_ADS_PURCHASED, false),
 
   addCoins: amount => {
     const next = get().coins + amount;
@@ -98,5 +110,53 @@ export const useProgressStore = create<ProgressState>((set, get) => ({
     const totalStars = computeTotalStars(map);
     StorageService.setNumber(StorageKeys.TOTAL_STARS, totalStars);
     set({levelProgress: map, totalStars});
+  },
+
+  purchaseTheme: (themeId, priceCoins) => {
+    const {ownedThemeIds, coins} = get();
+    if (ownedThemeIds.includes(themeId)) {
+      return true;
+    }
+    if (coins < priceCoins) {
+      return false;
+    }
+    const nextCoins = coins - priceCoins;
+    const nextOwned = [...ownedThemeIds, themeId];
+    StorageService.setNumber(StorageKeys.COINS, nextCoins);
+    StorageService.setObject(StorageKeys.OWNED_THEMES, nextOwned);
+    set({coins: nextCoins, ownedThemeIds: nextOwned});
+    return true;
+  },
+
+  setActiveTheme: themeId => {
+    if (!get().ownedThemeIds.includes(themeId)) {
+      return;
+    }
+    StorageService.setString(StorageKeys.ACTIVE_THEME_ID, themeId);
+    set({activeThemeId: themeId});
+  },
+
+  setRemoveAdsPurchased: () => {
+    StorageService.setBoolean(StorageKeys.REMOVE_ADS_PURCHASED, true);
+    set({removeAdsPurchased: true});
+  },
+
+  resetProgress: () => {
+    StorageService.delete(StorageKeys.CURRENT_LEVEL_ID);
+    StorageService.delete(StorageKeys.LEVEL_PROGRESS_MAP);
+    StorageService.setNumber(StorageKeys.COINS, GameConfig.STARTING_COINS);
+    StorageService.setNumber(StorageKeys.TOTAL_STARS, 0);
+    StorageService.setObject(StorageKeys.OWNED_THEMES, [DEFAULT_THEME_SKIN_ID]);
+    StorageService.setString(StorageKeys.ACTIVE_THEME_ID, DEFAULT_THEME_SKIN_ID);
+    StorageService.setBoolean(StorageKeys.REMOVE_ADS_PURCHASED, false);
+    set({
+      currentLevelId: null,
+      coins: GameConfig.STARTING_COINS,
+      totalStars: 0,
+      levelProgress: {},
+      ownedThemeIds: [DEFAULT_THEME_SKIN_ID],
+      activeThemeId: DEFAULT_THEME_SKIN_ID,
+      removeAdsPurchased: false,
+    });
   },
 }));

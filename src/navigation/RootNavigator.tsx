@@ -11,6 +11,8 @@ import {GameScreen} from '../screens/Game/GameScreen';
 import {SettingsScreen} from '../screens/Settings/SettingsScreen';
 import {ShopScreen} from '../screens/Shop/ShopScreen';
 import {DailyChallengeScreen} from '../screens/DailyChallenge/DailyChallengeScreen';
+import {AchievementsScreen} from '../screens/Achievements/AchievementsScreen';
+import {AchievementToast} from '../components/Achievements/AchievementToast';
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
@@ -45,7 +47,9 @@ export function RootNavigator() {
         <Stack.Screen name="Settings" component={SettingsScreen} options={{animation: 'slide_from_right'}} />
         <Stack.Screen name="Shop" component={ShopScreen} options={{animation: 'slide_from_right'}} />
         <Stack.Screen name="DailyChallenge" component={DailyChallengeScreen} options={{animation: 'slide_from_bottom'}} />
+        <Stack.Screen name="Achievements" component={AchievementsScreen} options={{animation: 'slide_from_right'}} />
       </Stack.Navigator>
+      <AchievementToast />
     </NavigationContainer>
   );
 }

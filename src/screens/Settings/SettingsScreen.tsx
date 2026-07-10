@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, StyleSheet, Switch, Text, View} from 'react-native';
+import {Alert, Linking, ScrollView, StyleSheet, Switch, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
 import {SafeAreaView} from 'react-native-safe-area-context';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -7,7 +7,12 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types';
 import {useAppTheme} from '../../hooks/useAppTheme';
 import {useSettingsStore, ThemePreference} from '../../store/useSettingsStore';
+import {useProgressStore} from '../../store/useProgressStore';
+import {useStatsStore} from '../../store/useStatsStore';
+import {useAchievementsStore} from '../../store/useAchievementsStore';
+import {useDailyChallengeStore} from '../../store/useDailyChallengeStore';
 import {Card} from '../../components/Card';
+import {Button} from '../../components/Button';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Settings'>;
 
@@ -17,9 +22,43 @@ const THEME_OPTIONS: {value: ThemePreference; label: string; icon: string}[] = [
   {value: 'dark', label: 'Dark', icon: 'weather-night'},
 ];
 
+const PLAY_STORE_URL = 'market://details?id=com.paintroll.game';
+const PLAY_STORE_WEB_URL = 'https://play.google.com/store/apps/details?id=com.paintroll.game';
+
 export function SettingsScreen({navigation}: Props) {
   const theme = useAppTheme();
   const settings = useSettingsStore();
+  const resetProgress = useProgressStore(state => state.resetProgress);
+  const resetStats = useStatsStore(state => state.resetAll);
+  const resetAchievements = useAchievementsStore(state => state.resetAll);
+  const resetDaily = useDailyChallengeStore(state => state.resetAll);
+
+  const handleRateApp = () => {
+    Linking.openURL(PLAY_STORE_URL).catch(() => {
+      Linking.openURL(PLAY_STORE_WEB_URL).catch(() => undefined);
+    });
+  };
+
+  const handleResetProgress = () => {
+    Alert.alert(
+      'Reset Progress?',
+      'This clears every level, star, coin, achievement, and streak. Purchased Remove Ads and owned themes will also be lost. This cannot be undone.',
+      [
+        {text: 'Cancel', style: 'cancel'},
+        {
+          text: 'Reset',
+          style: 'destructive',
+          onPress: () => {
+            resetProgress();
+            resetStats();
+            resetAchievements();
+            resetDaily();
+            navigation.navigate('Home');
+          },
+        },
+      ],
+    );
+  };
 
   return (
     <LinearGradient
@@ -100,6 +139,25 @@ export function SettingsScreen({navigation}: Props) {
               theme={theme}
             />
           </Card>
+
+          <Card style={styles.section}>
+            <Text style={[styles.sectionLabel, {color: theme.colors.textMuted}]}>More</Text>
+            <NavRow
+              icon="trophy"
+              label="Achievements"
+              theme={theme}
+              onPress={() => navigation.navigate('Achievements')}
+            />
+            <NavRow icon="cart" label="Shop" theme={theme} onPress={() => navigation.navigate('Shop')} />
+            <NavRow icon="star-outline" label="Rate PaintRoll" theme={theme} onPress={handleRateApp} />
+          </Card>
+
+          <Card style={styles.section}>
+            <Text style={[styles.sectionLabel, {color: theme.colors.textMuted}]}>Danger Zone</Text>
+            <Button label="Reset Progress" variant="danger" size="md" fullWidth onPress={handleResetProgress} />
+          </Card>
+
+          <Text style={[styles.about, {color: theme.colors.textMuted}]}>PaintRoll v0.0.1</Text>
         </ScrollView>
       </SafeAreaView>
     </LinearGradient>
@@ -133,6 +191,26 @@ function SettingRow({
   );
 }
 
+function NavRow({
+  icon,
+  label,
+  theme,
+  onPress,
+}: {
+  icon: string;
+  label: string;
+  theme: ReturnType<typeof useAppTheme>;
+  onPress: () => void;
+}) {
+  return (
+    <View style={styles.settingRow} onTouchEnd={onPress}>
+      <Icon name={icon} size={20} color={theme.colors.textSecondary} />
+      <Text style={[styles.settingLabel, {color: theme.colors.textPrimary}]}>{label}</Text>
+      <Icon name="chevron-right" size={20} color={theme.colors.textMuted} />
+    </View>
+  );
+}
+
 const styles = StyleSheet.create({
   flex: {flex: 1},
   header: {
@@ -152,6 +230,7 @@ const styles = StyleSheet.create({
   content: {
     padding: 16,
     gap: 16,
+    paddingBottom: 32,
   },
   section: {
     gap: 12,
@@ -182,5 +261,9 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 15,
     fontWeight: '500',
+  },
+  about: {
+    textAlign: 'center',
+    fontSize: 12,
   },
 });

@@ -20,9 +20,11 @@ import {GameHUD, CurrencyBadge} from '../../components/HUD';
 import {ConfettiOverlay} from '../../components/Particles/ConfettiOverlay';
 import {GameConfig} from '../../constants/gameConfig';
 import {SoundService} from '../../services/SoundService';
+import {AdsService} from '../../services/AdsService';
 import {PauseModal} from '../Pause/PauseModal';
 import {VictoryModal} from './VictoryModal';
 import {FailedModal} from './FailedModal';
+import {useRewardedHintAd} from '../../hooks/useRewardedHintAd';
 
 type Props = NativeStackScreenProps<RootStackParamList, 'Game'>;
 
@@ -35,11 +37,12 @@ const DIRECTION_LABEL: Record<string, string> = {
 
 export function GameScreen({navigation, route}: Props) {
   const theme = useAppTheme();
-  const {levelId} = route.params;
+  const {levelId, isDaily} = route.params;
 
   const level = useGameStore(state => state.level);
   const gameState = useGameStore(state => state.gameState);
   const hint = useGameStore(state => state.hint);
+  const bonusHints = useGameStore(state => state.bonusHints);
   const loadLevel = useGameStore(state => state.loadLevel);
   const move = useGameStore(state => state.move);
   const undo = useGameStore(state => state.undo);
@@ -49,7 +52,10 @@ export function GameScreen({navigation, route}: Props) {
   const tick = useGameStore(state => state.tick);
   const requestHint = useGameStore(state => state.requestHint);
   const unlockTile = useGameStore(state => state.unlockTile);
+  const grantBonusHints = useGameStore(state => state.grantBonusHints);
   const coins = useProgressStore(state => state.coins);
+
+  const rewardedHintAd = useRewardedHintAd(grantBonusHints);
 
   const [containerSize, setContainerSize] = useState({width: 0, height: 0});
   const [confettiTrigger, setConfettiTrigger] = useState(0);
@@ -57,8 +63,8 @@ export function GameScreen({navigation, route}: Props) {
   const previousStatus = useRef<string | null>(null);
 
   useEffect(() => {
-    loadLevel(levelId);
-  }, [levelId, loadLevel]);
+    loadLevel(levelId, {isDaily});
+  }, [levelId, isDaily, loadLevel]);
 
   useGameTimer(gameState?.status ?? 'idle', tick);
 
@@ -181,13 +187,24 @@ export function GameScreen({navigation, route}: Props) {
             theme={theme}
           />
           <ToolbarButton icon="restart" label="Restart" onPress={restart} theme={theme} />
-          <ToolbarButton
-            icon="lightbulb-on-outline"
-            label={`Hint (${GameConfig.HINT_COIN_COST})`}
-            disabled={gameState.hintsUsed >= GameConfig.MAX_HINTS_PER_LEVEL}
-            onPress={requestHint}
-            theme={theme}
-          />
+          {gameState.hintsUsed >= GameConfig.MAX_HINTS_PER_LEVEL + bonusHints &&
+          bonusHints === 0 &&
+          rewardedHintAd.isLoaded ? (
+            <ToolbarButton
+              icon="play-circle-outline"
+              label="Watch Ad: +Hints"
+              onPress={rewardedHintAd.watch}
+              theme={theme}
+            />
+          ) : (
+            <ToolbarButton
+              icon="lightbulb-on-outline"
+              label={`Hint (${GameConfig.HINT_COIN_COST})`}
+              disabled={gameState.hintsUsed >= GameConfig.MAX_HINTS_PER_LEVEL + bonusHints}
+              onPress={requestHint}
+              theme={theme}
+            />
+          )}
         </View>
       </SafeAreaView>
 
@@ -209,9 +226,18 @@ export function GameScreen({navigation, route}: Props) {
         moveCount={gameState.moveCount}
         coinsEarned={level.coinsReward}
         hasNextLevel={Boolean(nextLevel)}
-        onNext={() => nextLevel && loadLevel(nextLevel.id)}
-        onReplay={restart}
-        onExit={() => navigation.goBack()}
+        onNext={() => {
+          AdsService.notifyLevelCompleted();
+          nextLevel && loadLevel(nextLevel.id);
+        }}
+        onReplay={() => {
+          AdsService.notifyLevelCompleted();
+          restart();
+        }}
+        onExit={() => {
+          AdsService.notifyLevelCompleted();
+          navigation.goBack();
+        }}
       />
 
       <FailedModal

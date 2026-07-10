@@ -4,15 +4,21 @@ import {GameEngine} from '../engine/GameEngine';
 import {WinEngine} from '../engine/WinEngine';
 import {LevelLoader} from '../engine/LevelLoader';
 import {useProgressStore} from './useProgressStore';
-import {GameConfig} from '../constants/gameConfig';
+import {useStatsStore} from './useStatsStore';
+import {useAchievementsStore} from './useAchievementsStore';
+import {useDailyChallengeStore} from './useDailyChallengeStore';
+import {AdConfig, GameConfig} from '../constants/gameConfig';
 import {SoundService} from '../services/SoundService';
 
 interface GameStoreState {
   level: LevelDefinition | null;
   gameState: GameState | null;
   hint: HintSuggestion | null;
+  isDaily: boolean;
+  /** Extra hint uses granted this level session by watching a rewarded ad. */
+  bonusHints: number;
 
-  loadLevel: (levelId: string) => void;
+  loadLevel: (levelId: string, options?: {isDaily?: boolean}) => void;
   move: (direction: Direction) => void;
   undo: () => void;
   restart: () => void;
@@ -22,19 +28,28 @@ interface GameStoreState {
   requestHint: () => boolean;
   clearHint: () => void;
   unlockTile: (coord: GridCoord) => boolean;
+  grantBonusHints: () => void;
 }
 
 export const useGameStore = create<GameStoreState>((set, get) => ({
   level: null,
   gameState: null,
   hint: null,
+  isDaily: false,
+  bonusHints: 0,
 
-  loadLevel: levelId => {
+  loadLevel: (levelId, options) => {
     const level = LevelLoader.getLevelById(levelId);
     if (!level) {
       return;
     }
-    set({level, gameState: GameEngine.createInitialState(level), hint: null});
+    set({
+      level,
+      gameState: GameEngine.createInitialState(level),
+      hint: null,
+      isDaily: Boolean(options?.isDaily),
+      bonusHints: 0,
+    });
   },
 
   move: direction => {
@@ -47,17 +62,29 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
       return;
     }
     set({gameState: next, hint: null});
+    useStatsStore.getState().recordMove();
 
     if (next.status === 'won') {
       SoundService.play('victory');
       const result = WinEngine.rateStars(next.moveCount, level.starThresholds);
       const progress = useProgressStore.getState();
+      const firstClear = !progress.getLevelProgress(level.id)?.completed;
       progress.recordLevelResult(level.id, result, next.elapsedMs);
       progress.addCoins(level.coinsReward);
+      useStatsStore.getState().recordLevelResult({
+        timeMs: next.elapsedMs,
+        won: true,
+        stars: result.stars,
+        firstClear,
+      });
       const nextLevel = LevelLoader.getNextLevel(level.id);
       if (nextLevel) {
         progress.unlockLevel(nextLevel.id);
       }
+      if (get().isDaily) {
+        useDailyChallengeStore.getState().completeToday();
+      }
+      useAchievementsStore.getState().evaluate();
     }
   },
 
@@ -74,7 +101,7 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
     if (!level) {
       return;
     }
-    set({gameState: GameEngine.restart(level), hint: null});
+    set({gameState: GameEngine.restart(level), hint: null, bonusHints: 0});
   },
 
   pause: () => {
@@ -103,6 +130,7 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
 
     if (timeLimitMs > 0 && next.elapsedMs >= timeLimitMs) {
       SoundService.play('fail');
+      useStatsStore.getState().recordLevelResult({timeMs: timeLimitMs, won: false, stars: 0, firstClear: false});
       set({gameState: {...next, elapsedMs: timeLimitMs, status: 'lost'}});
       return;
     }
@@ -110,11 +138,11 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
   },
 
   requestHint: () => {
-    const {gameState} = get();
+    const {gameState, bonusHints} = get();
     if (!gameState || gameState.status !== 'playing') {
       return false;
     }
-    if (gameState.hintsUsed >= GameConfig.MAX_HINTS_PER_LEVEL) {
+    if (gameState.hintsUsed >= GameConfig.MAX_HINTS_PER_LEVEL + bonusHints) {
       return false;
     }
     const spent = useProgressStore.getState().spendCoins(GameConfig.HINT_COIN_COST);
@@ -127,6 +155,10 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
   },
 
   clearHint: () => set({hint: null}),
+
+  grantBonusHints: () => {
+    set({bonusHints: get().bonusHints + GameConfig.MAX_HINTS_PER_LEVEL * (AdConfig.REWARDED_HINT_MULTIPLIER - 1)});
+  },
 
   unlockTile: coord => {
     const {gameState} = get();

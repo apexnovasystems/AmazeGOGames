@@ -10,6 +10,7 @@ import {useAppTheme} from '../../hooks/useAppTheme';
 import {useProgressStore} from '../../store/useProgressStore';
 import {Button} from '../../components/Button';
 import {CurrencyBadge} from '../../components/HUD';
+import {BannerAdSlot} from '../../components/Ads/BannerAdSlot';
 import {LevelLoader} from '../../engine/LevelLoader';
 import {SoundService} from '../../services/SoundService';
 import {MusicService} from '../../services/MusicService';
@@ -50,6 +51,14 @@ export function HomeScreen({navigation}: Props) {
           <CurrencyBadge icon="hexagon-multiple" value={coins} tint={theme.colors.coin} />
           <CurrencyBadge icon="star" value={totalStars} tint={theme.colors.star} />
           <View style={styles.topBarSpacer} />
+          <Icon
+            name="trophy-outline"
+            size={24}
+            color={theme.colors.textPrimary}
+            onPress={() => navigation.navigate('Achievements')}
+            suppressHighlighting
+            style={styles.topBarIcon}
+          />
           <Icon
             name="cog"
             size={26}
@@ -111,6 +120,8 @@ export function HomeScreen({navigation}: Props) {
             icon={<Icon name="cart" size={18} color={theme.colors.textPrimary} />}
           />
         </View>
+
+        <BannerAdSlot />
       </SafeAreaView>
     </LinearGradient>
   );
@@ -126,6 +137,7 @@ const styles = StyleSheet.create({
     paddingTop: 12,
   },
   topBarSpacer: {flex: 1},
+  topBarIcon: {marginRight: 4},
   hero: {
     flex: 1,
     alignItems: 'center',
