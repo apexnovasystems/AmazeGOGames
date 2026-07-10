@@ -1,0 +1,96 @@
+setup to ractive native and run application 
+
+first go to this website 
+https://reactnative.dev/docs/set-up-your-environment
+
+check setup window and androd 
+then first install in power shell(run as adminstartor) this command always get lastest command for this url
+https://chocolatey.org/install
+the command is
+Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
+
+after install into cmd(run as adminstartor) run this command 
+choco install -y nodejs-lts microsoft-openjdk17
+afther that check node and java version using command if java command not recofniged run this command (refreshenv)
+node -v and java -version
+next setup is 1. Install Android Studio using this link
+https://developer.android.com/studio
+clik down load and  install 
+using next and finsidh 
+open it android and clikc onmore action and selected sdk mangaer
+ Look for and expand the Android 15 (VanillaIceCream) entry, then make sure the following items are checked:
+
+Android SDK Platform 35
+Intel x86 Atom_64 System Image or Google APIs Intel x86 Atom System Image
+also select one down version same feature add
+
+next go sdk tools 
+chose android sdk build tools 36-rc4
+skip lastest tool choose down version (2 and 3 version like 35.0.1 ,35.0.0, 34.0.0)
+then choose command line skip latest one 
+then click inatall and apply
+after that copy path
+C:\Users\kingb\AppData\Local\Android\Sdk
+after that create viral deive 
+clikc + plus icon
+select pic 8 pro click next 
+add vaniall icecream click download
+after that click next and finsh 
+to display click play button
+now add window envirment following  add as new in both in system and king(user) variabel 
+variable_name :JAVA_HOME
+variable_value :C:\Program Files\Microsoft\jdk-17.0.14.7-hotspot\
+variable_name :ANDROID_HOME
+variable_value :C:\Users\kingb\AppData\Local\Android\Sdk
+now path also add in path directory into edit both(system and user)  = PATH 
+C:\Users\kingb\AppData\Local\Android\Sdk\platform-tools
+C:\Users\kingb\AppData\Local\Android\Sdk
+C:\Users\kingb\AppData\Local\Android\Sdk\emulator
+C:\Users\kingb\AppData\Local\Android\Sdk\build-tools
+C:\Users\kingb\AppData\Local\Android\Sdk\platforms
+
+add this path in user variable path edit 
+if sytem have not included this path add this path also in system
+C:\Program Files\Microsoft\jdk-17.0.14.7-hotspot\bin
+
+
+if emaulator already running issue delete these three file
+
+Navigate to:
+C:\Users\kingb\.android\avd\Pixel_8_Pro_API_35.avd\
+Delete the following files if they exist:
+hardware-qemu.ini.lock
+multiinstance.lock
+snapshots.img.lock
+
+now run emulator and got any directory to crate application and open cmd in this path 
+and run this command 
+E:\React-Native>npx @react-native-community/cli init KmPms
+OR
+npx @react-native-community/cli init Km_pms
+
+
+now got to path cd kmPMS
+then code .(this open in vs code)
+now in vs cose press (crl + `) its open termainal 
+now run this command in vs terminal (npm start )
+if folleoing error 
+( FullyQualifiedErrorId : UnauthorizedAccess)
+Fix: Enable Script Execution
+Open PowerShell as Administrator
+
+Click Start, search for PowerShell, and select Run as Administrator.
+Check Current Execution Policy
+Run this command:
+
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Unrestricted
+or
+Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned -Force
+
+
+
+
+
+
+
+ 

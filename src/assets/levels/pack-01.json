@@ -1,0 +1,3187 @@
+{
+  "packId": "pack-01",
+  "packName": "Origins",
+  "levels": [
+    {
+      "id": "lvl-001",
+      "order": 0,
+      "name": "First Roll",
+      "rows": 4,
+      "cols": 4,
+      "ballStart": {
+        "row": 0,
+        "col": 0
+      },
+      "tiles": [
+        {
+          "row": 0,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        }
+      ],
+      "starThresholds": [
+        11,
+        8,
+        5
+      ],
+      "parTimeSeconds": 60,
+      "difficulty": "easy",
+      "coinsReward": 10
+    },
+    {
+      "id": "lvl-002",
+      "order": 1,
+      "name": "Corner Turn",
+      "rows": 4,
+      "cols": 5,
+      "ballStart": {
+        "row": 0,
+        "col": 0
+      },
+      "tiles": [
+        {
+          "row": 0,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        }
+      ],
+      "starThresholds": [
+        12,
+        9,
+        6
+      ],
+      "parTimeSeconds": 65,
+      "difficulty": "easy",
+      "coinsReward": 12
+    },
+    {
+      "id": "lvl-003",
+      "order": 2,
+      "name": "Zig Zag",
+      "rows": 5,
+      "cols": 5,
+      "ballStart": {
+        "row": 0,
+        "col": 0
+      },
+      "tiles": [
+        {
+          "row": 0,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        }
+      ],
+      "starThresholds": [
+        14,
+        11,
+        8
+      ],
+      "parTimeSeconds": 70,
+      "difficulty": "easy",
+      "coinsReward": 14
+    },
+    {
+      "id": "lvl-004",
+      "order": 3,
+      "name": "Boxed In",
+      "rows": 5,
+      "cols": 6,
+      "ballStart": {
+        "row": 2,
+        "col": 0
+      },
+      "tiles": [
+        {
+          "row": 0,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        }
+      ],
+      "starThresholds": [
+        15,
+        12,
+        9
+      ],
+      "parTimeSeconds": 75,
+      "difficulty": "medium",
+      "coinsReward": 16
+    },
+    {
+      "id": "lvl-005",
+      "order": 4,
+      "name": "Diagonal Drift",
+      "rows": 6,
+      "cols": 6,
+      "ballStart": {
+        "row": 0,
+        "col": 0
+      },
+      "tiles": [
+        {
+          "row": 0,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        }
+      ],
+      "starThresholds": [
+        17,
+        14,
+        11
+      ],
+      "parTimeSeconds": 80,
+      "difficulty": "medium",
+      "coinsReward": 18
+    },
+    {
+      "id": "lvl-006",
+      "order": 5,
+      "name": "Frozen Corner",
+      "rows": 6,
+      "cols": 6,
+      "ballStart": {
+        "row": 0,
+        "col": 0
+      },
+      "tiles": [
+        {
+          "row": 0,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "type": "ICE",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "type": "ICE",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "type": "ICE",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        }
+      ],
+      "starThresholds": [
+        18,
+        15,
+        12
+      ],
+      "parTimeSeconds": 85,
+      "difficulty": "medium",
+      "coinsReward": 20
+    },
+    {
+      "id": "lvl-007",
+      "order": 6,
+      "name": "Ice Run",
+      "rows": 6,
+      "cols": 7,
+      "ballStart": {
+        "row": 0,
+        "col": 6
+      },
+      "tiles": [
+        {
+          "row": 0,
+          "col": 0,
+          "type": "ICE",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "type": "ICE",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "type": "ICE",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "type": "ICE",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "type": "ICE",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        }
+      ],
+      "starThresholds": [
+        20,
+        17,
+        14
+      ],
+      "parTimeSeconds": 90,
+      "difficulty": "medium",
+      "coinsReward": 22
+    },
+    {
+      "id": "lvl-008",
+      "order": 7,
+      "name": "Split Path",
+      "rows": 7,
+      "cols": 7,
+      "ballStart": {
+        "row": 3,
+        "col": 3
+      },
+      "tiles": [
+        {
+          "row": 0,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 6,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        }
+      ],
+      "starThresholds": [
+        21,
+        18,
+        15
+      ],
+      "parTimeSeconds": 95,
+      "difficulty": "hard",
+      "coinsReward": 26
+    },
+    {
+      "id": "lvl-009",
+      "order": 8,
+      "name": "Portal Jump",
+      "rows": 7,
+      "cols": 7,
+      "ballStart": {
+        "row": 0,
+        "col": 0
+      },
+      "tiles": [
+        {
+          "row": 0,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "type": "PORTAL",
+          "paintable": false,
+          "linkId": "portal-1"
+        },
+        {
+          "row": 1,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "type": "TELEPORT",
+          "paintable": true,
+          "linkId": "portal-1"
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        }
+      ],
+      "starThresholds": [
+        21,
+        18,
+        15
+      ],
+      "parTimeSeconds": 100,
+      "difficulty": "hard",
+      "coinsReward": 30
+    },
+    {
+      "id": "lvl-010",
+      "order": 9,
+      "name": "Locked Vault",
+      "rows": 7,
+      "cols": 8,
+      "ballStart": {
+        "row": 0,
+        "col": 0
+      },
+      "tiles": [
+        {
+          "row": 0,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 2,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 7,
+          "type": "LOCKED",
+          "paintable": false,
+          "unlockCost": 15
+        }
+      ],
+      "starThresholds": [
+        23,
+        20,
+        17
+      ],
+      "parTimeSeconds": 105,
+      "difficulty": "hard",
+      "coinsReward": 34
+    },
+    {
+      "id": "lvl-011",
+      "order": 10,
+      "name": "Glacier Maze",
+      "rows": 8,
+      "cols": 8,
+      "ballStart": {
+        "row": 0,
+        "col": 0
+      },
+      "tiles": [
+        {
+          "row": 0,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 6,
+          "type": "ICE",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 7,
+          "type": "ICE",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 7,
+          "type": "ICE",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 0,
+          "type": "ICE",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 7,
+          "col": 0,
+          "type": "ICE",
+          "paintable": true
+        },
+        {
+          "row": 7,
+          "col": 1,
+          "type": "ICE",
+          "paintable": true
+        },
+        {
+          "row": 7,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 7,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 7,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 7,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 7,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 7,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        }
+      ],
+      "starThresholds": [
+        26,
+        23,
+        20
+      ],
+      "parTimeSeconds": 110,
+      "difficulty": "expert",
+      "coinsReward": 40
+    },
+    {
+      "id": "lvl-012",
+      "order": 11,
+      "name": "Grand Vault",
+      "rows": 8,
+      "cols": 8,
+      "ballStart": {
+        "row": 4,
+        "col": 4
+      },
+      "tiles": [
+        {
+          "row": 0,
+          "col": 0,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 0,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 3,
+          "type": "PORTAL",
+          "paintable": false,
+          "linkId": "portal-1"
+        },
+        {
+          "row": 0,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 0,
+          "col": 7,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 1,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 1,
+          "type": "LOCKED",
+          "paintable": false,
+          "unlockCost": 25
+        },
+        {
+          "row": 1,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 1,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 4,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 2,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 2,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 3,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 4,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 3,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 5,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 5,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 0,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 4,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 6,
+          "col": 6,
+          "type": "LOCKED",
+          "paintable": false,
+          "unlockCost": 25
+        },
+        {
+          "row": 6,
+          "col": 7,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 7,
+          "col": 0,
+          "type": "OBSTACLE",
+          "paintable": false
+        },
+        {
+          "row": 7,
+          "col": 1,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 7,
+          "col": 2,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 7,
+          "col": 3,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 7,
+          "col": 4,
+          "type": "TELEPORT",
+          "paintable": true,
+          "linkId": "portal-1"
+        },
+        {
+          "row": 7,
+          "col": 5,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 7,
+          "col": 6,
+          "type": "EMPTY",
+          "paintable": true
+        },
+        {
+          "row": 7,
+          "col": 7,
+          "type": "OBSTACLE",
+          "paintable": false
+        }
+      ],
+      "starThresholds": [
+        24,
+        21,
+        18
+      ],
+      "parTimeSeconds": 115,
+      "difficulty": "expert",
+      "coinsReward": 50
+    }
+  ]
+}
