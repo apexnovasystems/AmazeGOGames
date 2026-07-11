@@ -131,7 +131,7 @@
         9,
         5
       ],
-      "parTimeSeconds": 30,
+      "parTimeSeconds": 15,
       "difficulty": "easy",
       "coinsReward": 10
     },
@@ -292,7 +292,7 @@
         10,
         6
       ],
-      "parTimeSeconds": 30,
+      "parTimeSeconds": 15,
       "difficulty": "easy",
       "coinsReward": 12
     },
@@ -488,7 +488,7 @@
         12,
         8
       ],
-      "parTimeSeconds": 30,
+      "parTimeSeconds": 15,
       "difficulty": "easy",
       "coinsReward": 14
     },
@@ -649,7 +649,7 @@
         10,
         6
       ],
-      "parTimeSeconds": 30,
+      "parTimeSeconds": 15,
       "difficulty": "easy",
       "coinsReward": 16
     },
@@ -810,7 +810,7 @@
         10,
         6
       ],
-      "parTimeSeconds": 30,
+      "parTimeSeconds": 15,
       "difficulty": "easy",
       "coinsReward": 18
     },
@@ -1006,7 +1006,7 @@
         12,
         8
       ],
-      "parTimeSeconds": 30,
+      "parTimeSeconds": 15,
       "difficulty": "easy",
       "coinsReward": 20
     },
@@ -1237,7 +1237,7 @@
         13,
         9
       ],
-      "parTimeSeconds": 60,
+      "parTimeSeconds": 25,
       "difficulty": "medium",
       "coinsReward": 22
     },
@@ -1510,7 +1510,7 @@
         15,
         11
       ],
-      "parTimeSeconds": 60,
+      "parTimeSeconds": 25,
       "difficulty": "medium",
       "coinsReward": 25
     },
@@ -1783,7 +1783,7 @@
         15,
         11
       ],
-      "parTimeSeconds": 60,
+      "parTimeSeconds": 25,
       "difficulty": "medium",
       "coinsReward": 28
     },
@@ -2098,7 +2098,7 @@
         17,
         13
       ],
-      "parTimeSeconds": 60,
+      "parTimeSeconds": 25,
       "difficulty": "medium",
       "coinsReward": 31
     },
@@ -2413,7 +2413,7 @@
         17,
         13
       ],
-      "parTimeSeconds": 60,
+      "parTimeSeconds": 25,
       "difficulty": "medium",
       "coinsReward": 34
     },
@@ -2728,7 +2728,7 @@
         17,
         13
       ],
-      "parTimeSeconds": 60,
+      "parTimeSeconds": 25,
       "difficulty": "medium",
       "coinsReward": 37
     },
@@ -3085,7 +3085,7 @@
         19,
         15
       ],
-      "parTimeSeconds": 60,
+      "parTimeSeconds": 25,
       "difficulty": "medium",
       "coinsReward": 40
     },
@@ -3449,7 +3449,7 @@
         19,
         15
       ],
-      "parTimeSeconds": 60,
+      "parTimeSeconds": 25,
       "difficulty": "medium",
       "coinsReward": 43
     },
@@ -3764,7 +3764,7 @@
         17,
         13
       ],
-      "parTimeSeconds": 60,
+      "parTimeSeconds": 25,
       "difficulty": "medium",
       "coinsReward": 46
     },
@@ -4079,7 +4079,7 @@
         17,
         13
       ],
-      "parTimeSeconds": 60,
+      "parTimeSeconds": 25,
       "difficulty": "medium",
       "coinsReward": 49
     },
@@ -4443,7 +4443,7 @@
         19,
         15
       ],
-      "parTimeSeconds": 90,
+      "parTimeSeconds": 35,
       "difficulty": "hard",
       "coinsReward": 52
     },
@@ -4809,7 +4809,7 @@
         19,
         15
       ],
-      "parTimeSeconds": 90,
+      "parTimeSeconds": 35,
       "difficulty": "hard",
       "coinsReward": 56
     },
@@ -5223,7 +5223,7 @@
         22,
         18
       ],
-      "parTimeSeconds": 90,
+      "parTimeSeconds": 35,
       "difficulty": "hard",
       "coinsReward": 60
     },
@@ -5638,7 +5638,7 @@
         21,
         17
       ],
-      "parTimeSeconds": 90,
+      "parTimeSeconds": 35,
       "difficulty": "hard",
       "coinsReward": 64
     },
@@ -6052,7 +6052,7 @@
         22,
         18
       ],
-      "parTimeSeconds": 90,
+      "parTimeSeconds": 35,
       "difficulty": "hard",
       "coinsReward": 68
     },
@@ -6521,7 +6521,7 @@
         24,
         20
       ],
-      "parTimeSeconds": 90,
+      "parTimeSeconds": 35,
       "difficulty": "hard",
       "coinsReward": 72
     },
@@ -6934,7 +6934,7 @@
         22,
         18
       ],
-      "parTimeSeconds": 90,
+      "parTimeSeconds": 35,
       "difficulty": "hard",
       "coinsReward": 76
     },
@@ -7347,7 +7347,7 @@
         21,
         17
       ],
-      "parTimeSeconds": 90,
+      "parTimeSeconds": 35,
       "difficulty": "hard",
       "coinsReward": 80
     },
@@ -7818,7 +7818,7 @@
         24,
         20
       ],
-      "parTimeSeconds": 90,
+      "parTimeSeconds": 35,
       "difficulty": "hard",
       "coinsReward": 84
     },
@@ -8287,7 +8287,7 @@
         24,
         20
       ],
-      "parTimeSeconds": 90,
+      "parTimeSeconds": 35,
       "difficulty": "expert",
       "coinsReward": 90
     },
@@ -8760,7 +8760,7 @@
         24,
         20
       ],
-      "parTimeSeconds": 90,
+      "parTimeSeconds": 35,
       "difficulty": "expert",
       "coinsReward": 100
     },
@@ -9287,7 +9287,7 @@
         26,
         22
       ],
-      "parTimeSeconds": 90,
+      "parTimeSeconds": 35,
       "difficulty": "expert",
       "coinsReward": 110
     },
@@ -9813,7 +9813,7 @@
         28,
         24
       ],
-      "parTimeSeconds": 90,
+      "parTimeSeconds": 35,
       "difficulty": "expert",
       "coinsReward": 120
     },
@@ -10403,7 +10403,7 @@
         30,
         26
       ],
-      "parTimeSeconds": 90,
+      "parTimeSeconds": 35,
       "difficulty": "expert",
       "coinsReward": 130
     }

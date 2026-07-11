@@ -111,14 +111,19 @@ export function HomeScreen({navigation}: Props) {
               icon={<Icon name="calendar-star" size={18} color={theme.colors.textOnPrimary} />}
             />
           </View>
-          <Button
-            label="Shop"
-            variant="ghost"
-            size="md"
-            fullWidth
-            onPress={() => navigation.navigate('Shop')}
-            icon={<Icon name="cart" size={18} color={theme.colors.textPrimary} />}
-          />
+          <View style={styles.shopWrap}>
+            <Button
+              label="Shop"
+              variant="ghost"
+              size="md"
+              fullWidth
+              onPress={() => navigation.navigate('Shop')}
+              icon={<Icon name="cart" size={18} color={theme.colors.textPrimary} />}
+            />
+            <View style={[styles.comingSoonBadge, {backgroundColor: theme.colors.accent}]} pointerEvents="none">
+              <Text style={styles.comingSoonText}>SOON</Text>
+            </View>
+          </View>
         </View>
 
         <BannerAdSlot />
@@ -174,5 +179,22 @@ const styles = StyleSheet.create({
   },
   rowItem: {
     flex: 1,
+  },
+  shopWrap: {
+    position: 'relative',
+  },
+  comingSoonBadge: {
+    position: 'absolute',
+    top: -8,
+    right: 12,
+    paddingVertical: 3,
+    paddingHorizontal: 8,
+    borderRadius: 999,
+  },
+  comingSoonText: {
+    fontSize: 10,
+    fontWeight: '800',
+    color: '#FFFFFF',
+    letterSpacing: 0.5,
   },
 });

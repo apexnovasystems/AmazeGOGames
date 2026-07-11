@@ -227,7 +227,8 @@ export function GameScreen({navigation, route}: Props) {
         moveCount={gameState.moveCount}
         coinsEarned={level.coinsReward + lastTimeBonus}
         timeBonus={lastTimeBonus}
-        hasNextLevel={Boolean(nextLevel)}
+        hasNextLevel={Boolean(nextLevel) && !isDaily}
+        exitLabel={isDaily ? 'Done' : 'Levels'}
         onNext={() => {
           AdsService.notifyLevelCompleted();
           nextLevel && loadLevel(nextLevel.id);

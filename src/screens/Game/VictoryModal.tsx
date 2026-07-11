@@ -13,6 +13,7 @@ export interface VictoryModalProps {
   coinsEarned: number;
   timeBonus: number;
   hasNextLevel: boolean;
+  exitLabel?: string;
   onNext: () => void;
   onReplay: () => void;
   onExit: () => void;
@@ -25,6 +26,7 @@ export const VictoryModal = memo(function VictoryModal({
   coinsEarned,
   timeBonus,
   hasNextLevel,
+  exitLabel = 'Levels',
   onNext,
   onReplay,
   onExit,
@@ -73,7 +75,7 @@ export const VictoryModal = memo(function VictoryModal({
           onPress={onReplay}
           icon={<Icon name="restart" size={18} color={theme.colors.textOnPrimary} />}
         />
-        <Button label="Levels" variant="ghost" size="md" fullWidth onPress={onExit} />
+        <Button label={exitLabel} variant="ghost" size="md" fullWidth onPress={onExit} />
       </View>
     </AppModal>
   );

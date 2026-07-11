@@ -188,7 +188,7 @@ function paintableCount(tiles) {
 // Countdown time limit players race against — kept short and punchy so
 // every level is a sprint, not a stroll. Failing to finish in time ends
 // the level as a loss (see useGameStore.tick).
-const TIME_LIMIT_BY_DIFFICULTY = {easy: 30, medium: 60, hard: 90, expert: 90};
+const TIME_LIMIT_BY_DIFFICULTY = {easy: 15, medium: 25, hard: 35, expert: 35};
 
 function makeLevel(spec) {
   const {tiles, attempts} = generateSolvableLevel(spec);

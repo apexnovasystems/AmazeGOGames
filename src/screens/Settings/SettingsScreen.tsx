@@ -149,7 +149,13 @@ export function SettingsScreen({navigation}: Props) {
               theme={theme}
               onPress={() => navigation.navigate('Achievements')}
             />
-            <NavRow icon="cart" label="Shop" theme={theme} onPress={() => navigation.navigate('Shop')} />
+            <NavRow
+              icon="cart"
+              label="Shop"
+              theme={theme}
+              badge="SOON"
+              onPress={() => navigation.navigate('Shop')}
+            />
             <NavRow icon="star-outline" label="Rate PaintRoll" theme={theme} onPress={handleRateApp} />
             <NavRow
               icon="shield-lock-outline"
@@ -209,16 +215,23 @@ function NavRow({
   label,
   theme,
   onPress,
+  badge,
 }: {
   icon: string;
   label: string;
   theme: ReturnType<typeof useAppTheme>;
   onPress: () => void;
+  badge?: string;
 }) {
   return (
     <View style={styles.settingRow} onTouchEnd={onPress}>
       <Icon name={icon} size={20} color={theme.colors.textSecondary} />
       <Text style={[styles.settingLabel, {color: theme.colors.textPrimary}]}>{label}</Text>
+      {badge && (
+        <View style={[styles.navBadge, {backgroundColor: theme.colors.accent}]}>
+          <Text style={styles.navBadgeText}>{badge}</Text>
+        </View>
+      )}
       <Icon name="chevron-right" size={20} color={theme.colors.textMuted} />
     </View>
   );
@@ -274,6 +287,17 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 15,
     fontWeight: '500',
+  },
+  navBadge: {
+    paddingVertical: 3,
+    paddingHorizontal: 8,
+    borderRadius: 999,
+  },
+  navBadgeText: {
+    fontSize: 10,
+    fontWeight: '800',
+    color: '#FFFFFF',
+    letterSpacing: 0.5,
   },
   about: {
     textAlign: 'center',
