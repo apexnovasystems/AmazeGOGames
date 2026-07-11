@@ -2,7 +2,15 @@ import {LevelDefinition} from '../types';
 import {LevelLoader} from './LevelLoader';
 
 function dateKey(date: Date): string {
-  return date.toISOString().slice(0, 10);
+  // Local calendar date, not UTC — a "day" should match the day on the
+  // player's own clock. Using toISOString() here would roll the day over
+  // at UTC midnight, which happens mid-afternoon/evening in most
+  // non-UTC timezones and makes the streak look broken (fails to advance,
+  // or resets) even though the player played once per their own day.
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 }
 
 function hashString(value: string): number {
@@ -14,7 +22,7 @@ function hashString(value: string): number {
 }
 
 /**
- * Deterministically picks one level per calendar day (UTC) so every player
+ * Deterministically picks one level per local calendar day so every player
  * sees the same daily challenge without needing a backend.
  */
 export const DailyChallengeEngine = {
@@ -24,7 +32,7 @@ export const DailyChallengeEngine = {
 
   yesterdayKey(): string {
     const date = new Date();
-    date.setUTCDate(date.getUTCDate() - 1);
+    date.setDate(date.getDate() - 1);
     return dateKey(date);
   },
 

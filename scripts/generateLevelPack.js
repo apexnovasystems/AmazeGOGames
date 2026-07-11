@@ -163,10 +163,17 @@ function verifySolvable(tiles, rows, cols, ballStart, maxStates) {
   return {solvable: false, statesExplored};
 }
 
-function generateSolvableLevel(spec, maxAttempts = 4000) {
+function generateSolvableLevel(spec, maxAttempts = 12000) {
+  // Larger, more open boards have a combinatorially bigger reachable
+  // (position, paintedBitmask) state space — a flat state cap starves the
+  // BFS solver on big grids regardless of how many random layouts are
+  // tried (it never gets far enough to confirm solvable OR unsolvable).
+  // Scale the budget with board area so bigger levels get proportionally
+  // more search room.
+  const maxStates = Math.max(60000, spec.rows * spec.cols * 4000);
   for (let attempt = 0; attempt < maxAttempts; attempt++) {
     const tiles = buildRandomTiles(spec);
-    const result = verifySolvable(tiles, spec.rows, spec.cols, spec.ballStart, 60000);
+    const result = verifySolvable(tiles, spec.rows, spec.cols, spec.ballStart, maxStates);
     if (result.solvable === true) {
       return {tiles, attempts: attempt + 1};
     }
@@ -178,11 +185,10 @@ function paintableCount(tiles) {
   return tiles.filter(t => t.paintable || t.type === TileType.Locked).length;
 }
 
-// Countdown time limit players race against — scaled by difficulty so
-// easy levels stay snappy (2 min) while later ones give more breathing
-// room. Failing to finish in time ends the level as a loss (see
-// useGameStore.tick).
-const TIME_LIMIT_BY_DIFFICULTY = {easy: 120, medium: 160, hard: 210, expert: 260};
+// Countdown time limit players race against — kept short and punchy so
+// every level is a sprint, not a stroll. Failing to finish in time ends
+// the level as a loss (see useGameStore.tick).
+const TIME_LIMIT_BY_DIFFICULTY = {easy: 30, medium: 60, hard: 90, expert: 90};
 
 function makeLevel(spec) {
   const {tiles, attempts} = generateSolvableLevel(spec);
@@ -207,18 +213,43 @@ function makeLevel(spec) {
 }
 
 const specs = [
+  // Easy — order 0-5
   {id: 'lvl-001', order: 0, name: 'First Roll', rows: 4, cols: 4, ballStart: [0, 0], obstacleCount: 3, iceCount: 0, difficulty: 'easy', coinsReward: 10},
   {id: 'lvl-002', order: 1, name: 'Corner Turn', rows: 4, cols: 5, ballStart: [0, 0], obstacleCount: 4, iceCount: 0, difficulty: 'easy', coinsReward: 12},
   {id: 'lvl-003', order: 2, name: 'Zig Zag', rows: 5, cols: 5, ballStart: [0, 0], obstacleCount: 5, iceCount: 0, difficulty: 'easy', coinsReward: 14},
-  {id: 'lvl-004', order: 3, name: 'Boxed In', rows: 5, cols: 6, ballStart: [2, 0], obstacleCount: 6, iceCount: 0, difficulty: 'medium', coinsReward: 16},
-  {id: 'lvl-005', order: 4, name: 'Diagonal Drift', rows: 6, cols: 6, ballStart: [0, 0], obstacleCount: 7, iceCount: 0, difficulty: 'medium', coinsReward: 18},
-  {id: 'lvl-006', order: 5, name: 'Frozen Corner', rows: 6, cols: 6, ballStart: [0, 0], obstacleCount: 7, iceCount: 4, difficulty: 'medium', coinsReward: 20},
-  {id: 'lvl-007', order: 6, name: 'Ice Run', rows: 6, cols: 7, ballStart: [0, 6], obstacleCount: 8, iceCount: 5, difficulty: 'medium', coinsReward: 22},
-  {id: 'lvl-008', order: 7, name: 'Split Path', rows: 7, cols: 7, ballStart: [3, 3], obstacleCount: 10, iceCount: 0, difficulty: 'hard', coinsReward: 26},
-  {id: 'lvl-009', order: 8, name: 'Portal Jump', rows: 7, cols: 7, ballStart: [0, 0], obstacleCount: 9, iceCount: 0, portal: true, difficulty: 'hard', coinsReward: 30},
-  {id: 'lvl-010', order: 9, name: 'Locked Vault', rows: 7, cols: 8, ballStart: [0, 0], obstacleCount: 10, iceCount: 0, locked: {count: 1, cost: 15}, difficulty: 'hard', coinsReward: 34},
-  {id: 'lvl-011', order: 10, name: 'Glacier Maze', rows: 8, cols: 8, ballStart: [0, 0], obstacleCount: 12, iceCount: 6, difficulty: 'expert', coinsReward: 40},
-  {id: 'lvl-012', order: 11, name: 'Grand Vault', rows: 8, cols: 8, ballStart: [4, 4], obstacleCount: 11, iceCount: 0, portal: true, locked: {count: 2, cost: 25}, difficulty: 'expert', coinsReward: 50},
+  {id: 'lvl-004', order: 3, name: 'Simple Loop', rows: 4, cols: 5, ballStart: [3, 4], obstacleCount: 4, iceCount: 0, difficulty: 'easy', coinsReward: 16},
+  {id: 'lvl-005', order: 4, name: 'Quiet Path', rows: 5, cols: 4, ballStart: [0, 3], obstacleCount: 5, iceCount: 0, difficulty: 'easy', coinsReward: 18},
+  {id: 'lvl-006', order: 5, name: 'Open Field', rows: 5, cols: 5, ballStart: [4, 0], obstacleCount: 5, iceCount: 0, difficulty: 'easy', coinsReward: 20},
+
+  // Medium — order 6-15
+  {id: 'lvl-007', order: 6, name: 'Boxed In', rows: 5, cols: 6, ballStart: [2, 0], obstacleCount: 6, iceCount: 0, difficulty: 'medium', coinsReward: 22},
+  {id: 'lvl-008', order: 7, name: 'Diagonal Drift', rows: 6, cols: 6, ballStart: [0, 0], obstacleCount: 7, iceCount: 0, difficulty: 'medium', coinsReward: 25},
+  {id: 'lvl-009', order: 8, name: 'Frozen Corner', rows: 6, cols: 6, ballStart: [0, 0], obstacleCount: 7, iceCount: 4, difficulty: 'medium', coinsReward: 28},
+  {id: 'lvl-010', order: 9, name: 'Ice Run', rows: 6, cols: 7, ballStart: [0, 6], obstacleCount: 8, iceCount: 5, difficulty: 'medium', coinsReward: 31},
+  {id: 'lvl-011', order: 10, name: 'Twin Paths', rows: 6, cols: 7, ballStart: [3, 0], obstacleCount: 8, iceCount: 0, difficulty: 'medium', coinsReward: 34},
+  {id: 'lvl-012', order: 11, name: 'Snowy Trail', rows: 7, cols: 6, ballStart: [0, 0], obstacleCount: 8, iceCount: 5, difficulty: 'medium', coinsReward: 37},
+  {id: 'lvl-013', order: 12, name: 'Winding Road', rows: 6, cols: 8, ballStart: [0, 4], obstacleCount: 9, iceCount: 0, difficulty: 'medium', coinsReward: 40},
+  {id: 'lvl-014', order: 13, name: 'Cross Roads', rows: 7, cols: 7, ballStart: [3, 3], obstacleCount: 9, iceCount: 0, difficulty: 'medium', coinsReward: 43},
+  {id: 'lvl-015', order: 14, name: 'Frost Bridge', rows: 6, cols: 7, ballStart: [5, 6], obstacleCount: 7, iceCount: 6, difficulty: 'medium', coinsReward: 46},
+  {id: 'lvl-016', order: 15, name: 'Maze Runner', rows: 7, cols: 6, ballStart: [6, 0], obstacleCount: 9, iceCount: 0, difficulty: 'medium', coinsReward: 49},
+
+  // Hard — order 16-24
+  {id: 'lvl-017', order: 16, name: 'Split Path', rows: 7, cols: 7, ballStart: [3, 3], obstacleCount: 10, iceCount: 0, difficulty: 'hard', coinsReward: 52},
+  {id: 'lvl-018', order: 17, name: 'Portal Jump', rows: 7, cols: 7, ballStart: [0, 0], obstacleCount: 9, iceCount: 0, portal: true, difficulty: 'hard', coinsReward: 56},
+  {id: 'lvl-019', order: 18, name: 'Locked Vault', rows: 7, cols: 8, ballStart: [0, 0], obstacleCount: 10, iceCount: 0, locked: {count: 1, cost: 15}, difficulty: 'hard', coinsReward: 60},
+  {id: 'lvl-020', order: 19, name: 'Twin Portals', rows: 7, cols: 8, ballStart: [0, 7], obstacleCount: 10, iceCount: 0, portal: true, difficulty: 'hard', coinsReward: 64},
+  {id: 'lvl-021', order: 20, name: 'Ice Vault', rows: 8, cols: 7, ballStart: [0, 0], obstacleCount: 10, iceCount: 6, locked: {count: 1, cost: 18}, difficulty: 'hard', coinsReward: 68},
+  {id: 'lvl-022', order: 21, name: 'Grand Split', rows: 8, cols: 8, ballStart: [4, 4], obstacleCount: 12, iceCount: 0, difficulty: 'hard', coinsReward: 72},
+  {id: 'lvl-023', order: 22, name: 'Frozen Split', rows: 7, cols: 8, ballStart: [6, 7], obstacleCount: 10, iceCount: 6, difficulty: 'hard', coinsReward: 76},
+  {id: 'lvl-024', order: 23, name: 'Deep Maze', rows: 8, cols: 7, ballStart: [7, 6], obstacleCount: 11, iceCount: 0, difficulty: 'hard', coinsReward: 80},
+  {id: 'lvl-025', order: 24, name: 'Vault Runner', rows: 8, cols: 8, ballStart: [0, 7], obstacleCount: 11, iceCount: 0, locked: {count: 2, cost: 20}, difficulty: 'hard', coinsReward: 84},
+
+  // Expert — order 25-29
+  {id: 'lvl-026', order: 25, name: 'Glacier Maze', rows: 8, cols: 8, ballStart: [0, 0], obstacleCount: 12, iceCount: 6, difficulty: 'expert', coinsReward: 90},
+  {id: 'lvl-027', order: 26, name: 'Grand Vault', rows: 8, cols: 8, ballStart: [4, 4], obstacleCount: 11, iceCount: 0, portal: true, locked: {count: 2, cost: 25}, difficulty: 'expert', coinsReward: 100},
+  {id: 'lvl-028', order: 27, name: 'Portal Glacier', rows: 8, cols: 9, ballStart: [0, 0], obstacleCount: 13, iceCount: 7, portal: true, difficulty: 'expert', coinsReward: 110},
+  {id: 'lvl-029', order: 28, name: 'Vault of Ice', rows: 9, cols: 8, ballStart: [8, 7], obstacleCount: 10, iceCount: 5, locked: {count: 1, cost: 22}, difficulty: 'expert', coinsReward: 120},
+  {id: 'lvl-030', order: 29, name: "Master's Trial", rows: 9, cols: 9, ballStart: [4, 4], obstacleCount: 12, iceCount: 6, portal: true, difficulty: 'expert', coinsReward: 130},
 ];
 
 const levels = specs.map(makeLevel);

@@ -17,6 +17,8 @@ interface GameStoreState {
   isDaily: boolean;
   /** Extra hint uses granted this level session by watching a rewarded ad. */
   bonusHints: number;
+  /** Speed-bonus coins awarded on the most recent win, for the victory modal to display. */
+  lastTimeBonus: number;
 
   loadLevel: (levelId: string, options?: {isDaily?: boolean}) => void;
   move: (direction: Direction) => void;
@@ -37,17 +39,24 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
   hint: null,
   isDaily: false,
   bonusHints: 0,
+  lastTimeBonus: 0,
 
   loadLevel: (levelId, options) => {
     const level = LevelLoader.getLevelById(levelId);
     if (!level) {
       return;
     }
+    const isDaily = Boolean(options?.isDaily);
+    // Daily Challenge levels are a side quest, not campaign progress — don't
+    // let them hijack Home's "Continue" target away from the campaign.
+    if (!isDaily) {
+      useProgressStore.getState().setCurrentLevel(levelId);
+    }
     set({
       level,
       gameState: GameEngine.createInitialState(level),
       hint: null,
-      isDaily: Boolean(options?.isDaily),
+      isDaily,
       bonusHints: 0,
     });
   },
@@ -67,10 +76,12 @@ export const useGameStore = create<GameStoreState>((set, get) => ({
     if (next.status === 'won') {
       SoundService.play('victory');
       const result = WinEngine.rateStars(next.moveCount, level.starThresholds);
+      const timeBonus = WinEngine.calculateTimeBonus(next.elapsedMs, level.parTimeSeconds, level.coinsReward);
       const progress = useProgressStore.getState();
       const firstClear = !progress.getLevelProgress(level.id)?.completed;
       progress.recordLevelResult(level.id, result, next.elapsedMs);
-      progress.addCoins(level.coinsReward);
+      progress.addCoins(level.coinsReward + timeBonus);
+      set({lastTimeBonus: timeBonus});
       useStatsStore.getState().recordLevelResult({
         timeMs: next.elapsedMs,
         won: true,

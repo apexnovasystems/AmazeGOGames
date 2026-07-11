@@ -43,6 +43,7 @@ export function GameScreen({navigation, route}: Props) {
   const gameState = useGameStore(state => state.gameState);
   const hint = useGameStore(state => state.hint);
   const bonusHints = useGameStore(state => state.bonusHints);
+  const lastTimeBonus = useGameStore(state => state.lastTimeBonus);
   const loadLevel = useGameStore(state => state.loadLevel);
   const move = useGameStore(state => state.move);
   const undo = useGameStore(state => state.undo);
@@ -224,7 +225,8 @@ export function GameScreen({navigation, route}: Props) {
         visible={gameState.status === 'won'}
         stars={projectedStars}
         moveCount={gameState.moveCount}
-        coinsEarned={level.coinsReward}
+        coinsEarned={level.coinsReward + lastTimeBonus}
+        timeBonus={lastTimeBonus}
         hasNextLevel={Boolean(nextLevel)}
         onNext={() => {
           AdsService.notifyLevelCompleted();

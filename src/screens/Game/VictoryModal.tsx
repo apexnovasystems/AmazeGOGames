@@ -11,6 +11,7 @@ export interface VictoryModalProps {
   stars: 0 | 1 | 2 | 3;
   moveCount: number;
   coinsEarned: number;
+  timeBonus: number;
   hasNextLevel: boolean;
   onNext: () => void;
   onReplay: () => void;
@@ -22,6 +23,7 @@ export const VictoryModal = memo(function VictoryModal({
   stars,
   moveCount,
   coinsEarned,
+  timeBonus,
   hasNextLevel,
   onNext,
   onReplay,
@@ -46,6 +48,13 @@ export const VictoryModal = memo(function VictoryModal({
             <Text style={[styles.statValue, {color: theme.colors.textPrimary}]}>+{coinsEarned}</Text>
           </View>
         </View>
+
+        {timeBonus > 0 && (
+          <View style={[styles.bonusPill, {backgroundColor: theme.colors.glass, borderColor: theme.colors.glassBorder}]}>
+            <Icon name="lightning-bolt" size={14} color={theme.colors.warning} />
+            <Text style={[styles.bonusText, {color: theme.colors.textPrimary}]}>+{timeBonus} speed bonus</Text>
+          </View>
+        )}
 
         {hasNextLevel && (
           <Button
@@ -92,5 +101,19 @@ const styles = StyleSheet.create({
   statValue: {
     fontSize: 14,
     fontWeight: '600',
+  },
+  bonusPill: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 5,
+    paddingVertical: 5,
+    paddingHorizontal: 12,
+    borderRadius: 999,
+    borderWidth: 1,
+    marginTop: -6,
+  },
+  bonusText: {
+    fontSize: 12,
+    fontWeight: '700',
   },
 });
