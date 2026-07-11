@@ -3,9 +3,9 @@ import {StyleSheet, View} from 'react-native';
 import {BannerAd, BannerAdSize, TestIds} from 'react-native-google-mobile-ads';
 import {useProgressStore} from '../../store/useProgressStore';
 
-// Google's published test banner ad unit ID — swap for the real production
-// unit before shipping (see AdsService.ts for the same note).
-const BANNER_UNIT_ID = TestIds.BANNER;
+// Real production ad unit, used only in release builds (see AdsService.ts
+// for why debug builds keep using Google's test ad unit).
+const BANNER_UNIT_ID = __DEV__ ? TestIds.BANNER : 'ca-app-pub-4112792783713543/1143043899';
 
 /** Anchored adaptive banner. Renders nothing once Remove Ads is purchased, or if the ad fails to fill. */
 export function BannerAdSlot() {

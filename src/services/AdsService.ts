@@ -8,10 +8,10 @@ import mobileAds, {
 import {AdConfig} from '../constants/gameConfig';
 import {useProgressStore} from '../store/useProgressStore';
 
-// Google's published test ad unit IDs. Swap for the real production ad
-// units (from the AdMob console) before shipping — same as the test
-// Application ID already wired into AndroidManifest.xml.
-const INTERSTITIAL_UNIT_ID = TestIds.INTERSTITIAL;
+// Real production ad unit, used only in release builds — debug builds keep
+// using Google's test ad unit so developer testing never serves (or
+// accidentally clicks) real ads against the live account.
+const INTERSTITIAL_UNIT_ID = __DEV__ ? TestIds.INTERSTITIAL : 'ca-app-pub-4112792783713543/7997859766';
 
 class AdsServiceImpl {
   private initialized = false;

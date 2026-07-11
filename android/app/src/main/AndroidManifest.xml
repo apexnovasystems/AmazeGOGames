@@ -12,11 +12,9 @@
       android:theme="@style/AppTheme"
       android:usesCleartextTraffic="${usesCleartextTraffic}"
       android:supportsRtl="true">
-      <!-- Google's public AdMob test App ID. Replace with the real production
-           App ID before shipping. -->
       <meta-data
         android:name="com.google.android.gms.ads.APPLICATION_ID"
-        android:value="ca-app-pub-3940256099942544~3347511713"
+        android:value="ca-app-pub-4112792783713543~9763769948"
         tools:replace="android:value" />
       <activity
         android:name=".MainActivity"
