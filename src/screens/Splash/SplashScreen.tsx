@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {Image, StyleSheet, Text, View} from 'react-native';
 import LinearGradient from 'react-native-linear-gradient';
+import {SafeAreaView} from 'react-native-safe-area-context';
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
@@ -15,6 +16,8 @@ import {NativeStackScreenProps} from '@react-navigation/native-stack';
 import {RootStackParamList} from '../../types';
 import {useAppTheme} from '../../hooks/useAppTheme';
 
+const apexNovaLogo = require('../../assets/branding/apexnova-logo-transparent.png');
+
 type Props = NativeStackScreenProps<RootStackParamList, 'Splash'>;
 
 const DOT_COUNT = 5;
@@ -25,6 +28,7 @@ export function SplashScreen({navigation}: Props) {
   const ballScale = useSharedValue(0.6);
   const logoOpacity = useSharedValue(0);
   const dotsProgress = useSharedValue(0);
+  const footerOpacity = useSharedValue(0);
 
   useEffect(() => {
     ballScale.value = withTiming(1, {duration: 400, easing: Easing.out(Easing.exp)});
@@ -37,6 +41,7 @@ export function SplashScreen({navigation}: Props) {
       700,
       withRepeat(withTiming(1, {duration: 900, easing: Easing.linear}), -1, false),
     );
+    footerOpacity.value = withDelay(900, withTiming(1, {duration: 600}));
 
     const timer = setTimeout(() => {
       runOnJS(navigation.replace)('Home');
@@ -55,35 +60,46 @@ export function SplashScreen({navigation}: Props) {
     transform: [{translateY: (1 - logoOpacity.value) * 12}],
   }));
 
+  const footerStyle = useAnimatedStyle(() => ({
+    opacity: footerOpacity.value,
+  }));
+
   return (
     <LinearGradient
       colors={[theme.colors.backgroundGradientStart, theme.colors.backgroundGradientEnd]}
       style={styles.container}>
-      <View style={styles.content}>
-        <View style={styles.trackWrapper}>
-          <View style={[styles.track, {backgroundColor: theme.colors.glass, borderColor: theme.colors.glassBorder}]} />
-          <Animated.View
-            style={[
-              styles.ball,
-              {backgroundColor: theme.colors.primary, shadowColor: theme.colors.primary},
-              ballStyle,
-            ]}
-          />
+      <SafeAreaView style={styles.safeArea} edges={['top', 'bottom']}>
+        <View style={styles.content}>
+          <View style={styles.trackWrapper}>
+            <View style={[styles.track, {backgroundColor: theme.colors.glass, borderColor: theme.colors.glassBorder}]} />
+            <Animated.View
+              style={[
+                styles.ball,
+                {backgroundColor: theme.colors.primary, shadowColor: theme.colors.primary},
+                ballStyle,
+              ]}
+            />
+          </View>
+
+          <Animated.View style={logoStyle}>
+            <Text style={[styles.title, {color: theme.colors.textPrimary}]}>
+              Paint<Text style={{color: theme.colors.primary}}>Roll</Text>
+            </Text>
+            <Text style={[styles.subtitle, {color: theme.colors.textMuted}]}>swipe. roll. paint everything.</Text>
+          </Animated.View>
+
+          <View style={styles.dotsRow}>
+            {Array.from({length: DOT_COUNT}).map((_, index) => (
+              <LoadingDot key={index} index={index} progress={dotsProgress} color={theme.colors.primary} />
+            ))}
+          </View>
         </View>
 
-        <Animated.View style={logoStyle}>
-          <Text style={[styles.title, {color: theme.colors.textPrimary}]}>
-            Paint<Text style={{color: theme.colors.primary}}>Roll</Text>
-          </Text>
-          <Text style={[styles.subtitle, {color: theme.colors.textMuted}]}>swipe. roll. paint everything.</Text>
+        <Animated.View style={[styles.footer, footerStyle]}>
+          <Text style={[styles.poweredBy, {color: theme.colors.textMuted}]}>Powered by</Text>
+          <Image source={apexNovaLogo} style={styles.footerLogo} resizeMode="contain" />
         </Animated.View>
-
-        <View style={styles.dotsRow}>
-          {Array.from({length: DOT_COUNT}).map((_, index) => (
-            <LoadingDot key={index} index={index} progress={dotsProgress} color={theme.colors.primary} />
-          ))}
-        </View>
-      </View>
+      </SafeAreaView>
     </LinearGradient>
   );
 }
@@ -111,12 +127,31 @@ function LoadingDot({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+  },
+  safeArea: {
+    flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
   },
   content: {
+    flex: 1,
     alignItems: 'center',
+    justifyContent: 'center',
     gap: 28,
+  },
+  footer: {
+    alignItems: 'center',
+    gap: 6,
+    paddingBottom: 16,
+  },
+  poweredBy: {
+    fontSize: 11,
+    fontWeight: '600',
+    letterSpacing: 0.6,
+    textTransform: 'uppercase',
+  },
+  footerLogo: {
+    width: 150,
+    height: 77,
   },
   trackWrapper: {
     width: 220,
