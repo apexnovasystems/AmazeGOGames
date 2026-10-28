@@ -44,7 +44,7 @@ export const ACHIEVEMENTS: AchievementDefinition[] = [
     description: 'Complete every level in Origins.',
     icon: 'trophy',
     metric: 'levelsCompleted',
-    target: 30,
+    target: 60,
     coinsReward: 250,
   },
   {
@@ -77,10 +77,10 @@ export const ACHIEVEMENTS: AchievementDefinition[] = [
   {
     id: 'star-hoarder',
     name: 'Star Hoarder',
-    description: 'Earn all 90 stars.',
+    description: 'Earn all 180 stars.',
     icon: 'shimmer',
     metric: 'totalStars',
-    target: 90,
+    target: 180,
     coinsReward: 300,
   },
   {

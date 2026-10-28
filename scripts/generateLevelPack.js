@@ -8,6 +8,8 @@
  * matching the real tap-to-unlock mechanic in useGameStore.
  *
  * Run with: node scripts/generateLevelPack.js
+ * (keeps existing levels, generates only new ones; add --regenerate to
+ * rebuild the whole pack)
  */
 const fs = require('fs');
 const path = require('path');
@@ -136,13 +138,16 @@ function verifySolvable(tiles, rows, cols, ballStart, maxStates) {
   const visited = new Set([`${ballStart[0]},${ballStart[1]},${startMask.toString(16)}`]);
   let queue = [{r: ballStart[0], c: ballStart[1], mask: startMask}];
   let statesExplored = 0;
+  // BFS is level-by-level, so the depth at which the first fully-painted
+  // state shows up is the fewest swipes any player could possibly win in.
+  let depth = 0;
 
   while (queue.length > 0) {
     const next = [];
     for (const state of queue) {
       statesExplored++;
       if (statesExplored > maxStates) return {solvable: null, statesExplored};
-      if (state.mask === fullMask) return {solvable: true, statesExplored};
+      if (state.mask === fullMask) return {solvable: true, statesExplored, minMoves: depth};
       for (const dir of ['UP', 'DOWN', 'LEFT', 'RIGHT']) {
         const {visited: mpath, finalR, finalC, moved} = computeMove(grid, rows, cols, state.r, state.c, dir);
         if (!moved) continue;
@@ -159,6 +164,7 @@ function verifySolvable(tiles, rows, cols, ballStart, maxStates) {
       }
     }
     queue = next;
+    depth++;
   }
   return {solvable: false, statesExplored};
 }
@@ -175,7 +181,7 @@ function generateSolvableLevel(spec, maxAttempts = 12000) {
     const tiles = buildRandomTiles(spec);
     const result = verifySolvable(tiles, spec.rows, spec.cols, spec.ballStart, maxStates);
     if (result.solvable === true) {
-      return {tiles, attempts: attempt + 1};
+      return {tiles, attempts: attempt + 1, minMoves: result.minMoves};
     }
   }
   throw new Error(`Failed to generate a solvable layout for ${spec.rows}x${spec.cols} after ${maxAttempts} attempts`);
@@ -185,17 +191,35 @@ function paintableCount(tiles) {
   return tiles.filter(t => t.paintable || t.type === TileType.Locked).length;
 }
 
-// Countdown time limit players race against — kept short and punchy so
-// every level is a sprint, not a stroll. Failing to finish in time ends
-// the level as a loss (see useGameStore.tick).
+// Countdown time limit players race against — failing to finish in time
+// ends the level as a loss (see useGameStore.tick). The per-tier value is a
+// floor; the real limit is also scaled from the level's true optimal
+// solution (see tuneForOptimum) so a level is never shorter than what a
+// player needs just to *swipe* the solution, let alone work it out.
 const TIME_LIMIT_BY_DIFFICULTY = {easy: 15, medium: 25, hard: 35, expert: 35};
 
+// Stars are awarded by swipe count (WinEngine.rateStars), so thresholds must
+// sit relative to the fewest swipes physically possible — otherwise 3 stars
+// (or even 1) can be unreachable. These are slack above the optimum.
+const STAR_SLACK = {three: 2, two: 6, one: 12};
+const SECONDS_PER_OPTIMAL_MOVE = 2.5;
+const TIME_PADDING_SECONDS = 10;
+
+function tuneForOptimum(minMoves, difficulty) {
+  return {
+    starThresholds: [minMoves + STAR_SLACK.one, minMoves + STAR_SLACK.two, minMoves + STAR_SLACK.three],
+    parTimeSeconds: Math.max(
+      TIME_LIMIT_BY_DIFFICULTY[difficulty],
+      Math.ceil(minMoves * SECONDS_PER_OPTIMAL_MOVE + TIME_PADDING_SECONDS),
+    ),
+  };
+}
+
 function makeLevel(spec) {
-  const {tiles, attempts} = generateSolvableLevel(spec);
+  const {tiles, attempts, minMoves} = generateSolvableLevel(spec);
   const total = paintableCount(tiles);
-  const base = Math.max(4, Math.round(total / 2.6));
-  const starThresholds = [base + 8, base + 4, base];
-  console.log(`${spec.id}: solved in ${attempts} attempt(s), ${total} paintable tiles`);
+  const {starThresholds, parTimeSeconds} = tuneForOptimum(minMoves, spec.difficulty);
+  console.log(`${spec.id}: solved in ${attempts} attempt(s), ${total} paintable tiles, optimal ${minMoves} moves`);
   return {
     id: spec.id,
     order: spec.order,
@@ -205,7 +229,7 @@ function makeLevel(spec) {
     ballStart: {row: spec.ballStart[0], col: spec.ballStart[1]},
     tiles,
     starThresholds,
-    parTimeSeconds: TIME_LIMIT_BY_DIFFICULTY[spec.difficulty],
+    parTimeSeconds,
     difficulty: spec.difficulty,
     coinsReward: spec.coinsReward,
     ...(spec.unlockCoinCost ? {unlockCoinCost: spec.unlockCoinCost} : {}),
@@ -250,11 +274,84 @@ const specs = [
   {id: 'lvl-028', order: 27, name: 'Portal Glacier', rows: 8, cols: 9, ballStart: [0, 0], obstacleCount: 13, iceCount: 7, portal: true, difficulty: 'expert', coinsReward: 110},
   {id: 'lvl-029', order: 28, name: 'Vault of Ice', rows: 9, cols: 8, ballStart: [8, 7], obstacleCount: 10, iceCount: 5, locked: {count: 1, cost: 22}, difficulty: 'expert', coinsReward: 120},
   {id: 'lvl-030', order: 29, name: "Master's Trial", rows: 9, cols: 9, ballStart: [4, 4], obstacleCount: 12, iceCount: 6, portal: true, difficulty: 'expert', coinsReward: 130},
+
+  // Second half — order 30-59. A fresh ramp (medium → hard → expert) so
+  // players finishing "Master's Trial" get a gentle re-entry, then climb.
+  // Medium — order 30-32
+  {id: 'lvl-031', order: 30, name: 'Fresh Coat', rows: 6, cols: 6, ballStart: [0, 0], obstacleCount: 7, iceCount: 0, difficulty: 'medium', coinsReward: 52},
+  {id: 'lvl-032', order: 31, name: 'Side Step', rows: 6, cols: 7, ballStart: [0, 6], obstacleCount: 8, iceCount: 3, difficulty: 'medium', coinsReward: 55},
+  {id: 'lvl-033', order: 32, name: 'Slick Alley', rows: 7, cols: 6, ballStart: [6, 0], obstacleCount: 8, iceCount: 5, difficulty: 'medium', coinsReward: 58},
+
+  // Hard — order 33-44
+  {id: 'lvl-034', order: 33, name: 'Warp Lane', rows: 7, cols: 7, ballStart: [0, 0], obstacleCount: 8, iceCount: 0, portal: true, difficulty: 'hard', coinsReward: 60},
+  {id: 'lvl-035', order: 34, name: 'Ice Lane', rows: 7, cols: 8, ballStart: [0, 0], obstacleCount: 10, iceCount: 7, difficulty: 'hard', coinsReward: 63},
+  {id: 'lvl-036', order: 35, name: 'Vault Door', rows: 7, cols: 7, ballStart: [6, 6], obstacleCount: 9, iceCount: 0, locked: {count: 1, cost: 15}, difficulty: 'hard', coinsReward: 66},
+  {id: 'lvl-037', order: 36, name: 'Echo Chamber', rows: 8, cols: 7, ballStart: [0, 0], obstacleCount: 11, iceCount: 0, portal: true, difficulty: 'hard', coinsReward: 69},
+  {id: 'lvl-038', order: 37, name: 'Slide Show', rows: 8, cols: 8, ballStart: [0, 7], obstacleCount: 11, iceCount: 8, difficulty: 'hard', coinsReward: 72},
+  {id: 'lvl-039', order: 38, name: 'Lockdown', rows: 7, cols: 8, ballStart: [3, 0], obstacleCount: 10, iceCount: 0, locked: {count: 2, cost: 18}, difficulty: 'hard', coinsReward: 75},
+  {id: 'lvl-040', order: 39, name: 'Mirror Maze', rows: 8, cols: 8, ballStart: [7, 0], obstacleCount: 12, iceCount: 0, difficulty: 'hard', coinsReward: 78},
+  {id: 'lvl-041', order: 40, name: 'Warp Frost', rows: 7, cols: 8, ballStart: [0, 0], obstacleCount: 9, iceCount: 6, portal: true, difficulty: 'hard', coinsReward: 81},
+  {id: 'lvl-042', order: 41, name: 'Ice Keep', rows: 8, cols: 7, ballStart: [7, 6], obstacleCount: 10, iceCount: 6, locked: {count: 1, cost: 20}, difficulty: 'hard', coinsReward: 84},
+  {id: 'lvl-043', order: 42, name: 'Crosswind', rows: 8, cols: 8, ballStart: [4, 4], obstacleCount: 12, iceCount: 5, difficulty: 'hard', coinsReward: 87},
+  {id: 'lvl-044', order: 43, name: 'Twin Gate', rows: 8, cols: 8, ballStart: [0, 0], obstacleCount: 10, iceCount: 0, portal: true, locked: {count: 1, cost: 20}, difficulty: 'hard', coinsReward: 90},
+  {id: 'lvl-045', order: 44, name: 'Cold Storage', rows: 8, cols: 8, ballStart: [7, 7], obstacleCount: 11, iceCount: 7, locked: {count: 2, cost: 22}, difficulty: 'hard', coinsReward: 93},
+
+  // Expert — order 45-59
+  {id: 'lvl-046', order: 45, name: 'Glass Floor', rows: 8, cols: 9, ballStart: [0, 0], obstacleCount: 12, iceCount: 8, difficulty: 'expert', coinsReward: 100},
+  {id: 'lvl-047', order: 46, name: 'Portal Plains', rows: 9, cols: 8, ballStart: [8, 0], obstacleCount: 11, iceCount: 0, portal: true, difficulty: 'expert', coinsReward: 104},
+  {id: 'lvl-048', order: 47, name: 'Vault Maze', rows: 8, cols: 9, ballStart: [0, 8], obstacleCount: 12, iceCount: 0, locked: {count: 2, cost: 24}, difficulty: 'expert', coinsReward: 108},
+  {id: 'lvl-049', order: 48, name: 'Polar Express', rows: 9, cols: 8, ballStart: [4, 0], obstacleCount: 11, iceCount: 8, portal: true, difficulty: 'expert', coinsReward: 112},
+  {id: 'lvl-050', order: 49, name: 'Half Century', rows: 9, cols: 9, ballStart: [0, 0], obstacleCount: 12, iceCount: 5, difficulty: 'expert', coinsReward: 116},
+  {id: 'lvl-051', order: 50, name: 'Gatekeeper', rows: 9, cols: 8, ballStart: [0, 7], obstacleCount: 12, iceCount: 0, portal: true, locked: {count: 2, cost: 25}, difficulty: 'expert', coinsReward: 120},
+  {id: 'lvl-052', order: 51, name: 'Frozen Vault', rows: 8, cols: 9, ballStart: [7, 8], obstacleCount: 11, iceCount: 7, locked: {count: 2, cost: 26}, difficulty: 'expert', coinsReward: 124},
+  {id: 'lvl-053', order: 52, name: 'Spiral Out', rows: 9, cols: 9, ballStart: [4, 4], obstacleCount: 13, iceCount: 0, difficulty: 'expert', coinsReward: 128},
+  {id: 'lvl-054', order: 53, name: 'Aurora', rows: 9, cols: 9, ballStart: [0, 8], obstacleCount: 11, iceCount: 8, portal: true, difficulty: 'expert', coinsReward: 132},
+  {id: 'lvl-055', order: 54, name: 'Deep Freeze', rows: 9, cols: 9, ballStart: [8, 0], obstacleCount: 12, iceCount: 9, difficulty: 'expert', coinsReward: 136},
+  {id: 'lvl-056', order: 55, name: 'Double Lock', rows: 9, cols: 8, ballStart: [0, 0], obstacleCount: 11, iceCount: 0, portal: true, locked: {count: 3, cost: 24}, difficulty: 'expert', coinsReward: 140},
+  {id: 'lvl-057', order: 56, name: 'Whiteout', rows: 9, cols: 9, ballStart: [4, 4], obstacleCount: 12, iceCount: 8, locked: {count: 2, cost: 28}, difficulty: 'expert', coinsReward: 145},
+  {id: 'lvl-058', order: 57, name: 'Warp Core', rows: 9, cols: 9, ballStart: [8, 8], obstacleCount: 12, iceCount: 5, portal: true, difficulty: 'expert', coinsReward: 150},
+  {id: 'lvl-059', order: 58, name: 'Final Exam', rows: 9, cols: 9, ballStart: [0, 0], obstacleCount: 13, iceCount: 7, portal: true, locked: {count: 2, cost: 30}, difficulty: 'expert', coinsReward: 160},
+  {id: 'lvl-060', order: 59, name: 'Grand Master', rows: 9, cols: 9, ballStart: [4, 4], obstacleCount: 12, iceCount: 8, portal: true, locked: {count: 2, cost: 30}, difficulty: 'expert', coinsReward: 180},
 ];
 
-const levels = specs.map(makeLevel);
+const outPath = path.join(__dirname, '..', 'src', 'assets', 'levels', 'pack-01.json');
+const regenerateAll = process.argv.includes('--regenerate');
+
+// By default, levels already in pack-01.json are kept byte-for-byte: they
+// are live in the store and players have stars/progress recorded against
+// them, so re-rolling their random layouts would silently change them.
+// Only specs missing from the file get generated. Pass --regenerate to
+// rebuild every level from scratch (dev use only, before first release).
+const existingLevels =
+  !regenerateAll && fs.existsSync(outPath) ? JSON.parse(fs.readFileSync(outPath, 'utf8')).levels : [];
+const existingById = new Map(existingLevels.map(l => [l.id, l]));
+
+// --retune-from=N recomputes star thresholds + time limit (from the true
+// optimal solution) for already-generated levels with order >= N, leaving
+// their layouts untouched. Levels below N stay exactly as they are.
+const retuneArg = process.argv.find(a => a.startsWith('--retune-from='));
+const retuneFrom = retuneArg ? Number(retuneArg.split('=')[1]) : null;
+
+function retuneLevel(level) {
+  const maxStates = Math.max(60000, level.rows * level.cols * 4000);
+  const {solvable, minMoves} = verifySolvable(
+    level.tiles, level.rows, level.cols, [level.ballStart.row, level.ballStart.col], maxStates * 20,
+  );
+  if (solvable !== true) throw new Error(`${level.id}: could not confirm solvable while retuning`);
+  const tuned = {...level, ...tuneForOptimum(minMoves, level.difficulty)};
+  console.log(`${level.id}: optimal ${minMoves} moves -> stars ${tuned.starThresholds.join('/')}, ${tuned.parTimeSeconds}s`);
+  return tuned;
+}
+
+const levels = specs.map(spec => {
+  const existing = existingById.get(spec.id);
+  if (!existing) return makeLevel(spec);
+  return retuneFrom !== null && existing.order >= retuneFrom ? retuneLevel(existing) : existing;
+});
 
 const pack = {packId: 'pack-01', packName: 'Origins', levels};
-const outPath = path.join(__dirname, '..', 'src', 'assets', 'levels', 'pack-01.json');
 fs.writeFileSync(outPath, JSON.stringify(pack, null, 2));
-console.log('\nWrote', outPath, 'with', levels.length, 'guaranteed-solvable levels');
+console.log(
+  `\nWrote ${outPath} with ${levels.length} guaranteed-solvable levels ` +
+    `(${levels.length - existingById.size} new, ${existingById.size} kept)`,
+);
